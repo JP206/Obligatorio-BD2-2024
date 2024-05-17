@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  db-mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+    container_name: mysql-db
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db-volume:/var/lib/mysql
