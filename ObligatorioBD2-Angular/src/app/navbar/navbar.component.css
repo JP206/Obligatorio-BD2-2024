@@ -1,0 +1,106 @@
+.logo {
+    width: 20%;
+    height: 20%;
+}
+.logo:hover{
+-webkit-animation: spin 5s infinite;
+    animation: spin 5s infinite;
+}
+p {
+    margin-bottom: 0px;
+}
+@-webkit-keyframes spin{
+from {
+    -webkit-transform: rotateY(0deg);
+}
+to {
+    -webkit-transform: rotateY(-360deg);
+}
+}
+
+@keyframes spin{
+from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+}
+}
+.navbar-brand {
+
+}
+.img-with-text {
+    text-align: center;
+}
+
+.img-with-text img {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    height: 70%;
+}
+.brand {
+font-size: 30px;
+font-family: 'Times New Roman', Times, serif;
+padding-left: 15px;
+}
+
+.a_container {
+    background-color: rgb(77, 122, 206);
+    color: rgb(77, 122, 206);
+    display: flex; /* Add this line to use flexbox */
+    align-items: center; /* Align items vertically center */
+    justify-content: space-around; /* Spread the items horizontally with space around them */
+}
+
+.navbar {
+    background-color: rgb(97, 159, 231);
+}
+
+.link {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    transition: 0.5s;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.logout {
+    margin-right: 30px;
+}
+
+.link:hover {
+    color: rgb(8, 11, 179);
+    transition: 0.5s;
+    cursor: pointer;
+}
+#logout {
+    cursor: pointer;
+  }
+  
+  #logout:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    
+    30%, 50%, 70% {
+      transform: translate3d(-2px, 0, 0);
+    }
+    40%, 60% {
+      transform: translate3d(2px, 0, 0);
+  }
+}
