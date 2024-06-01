@@ -1,6 +1,7 @@
 use obligatorio;
 
 GRANT ALL PRIVILEGES ON obligatorio.* TO 'user'@'%';
+FLUSH PRIVILEGES;
 
 create table Usuarios (
     id int primary key auto_increment,
