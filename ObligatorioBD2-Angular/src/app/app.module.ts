@@ -8,10 +8,18 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FixtureComponent } from './fixture/fixture.component';
+import { ApuestasComponent } from './apuestas/apuestas.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { PrediccionComponent } from './prediccion/prediccion.component';
+import { PartidoComponent } from './partido/partido.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'fixture', component: FixtureComponent},
+  {path: 'apuesta', component: ApuestasComponent},
+  {path: 'leaderboard', component: LeaderboardComponent}
 ];
 
 @NgModule({
@@ -23,7 +31,7 @@ const appRoutes: Routes = [
     NgbModule
   ],
   declarations: [
-    AppComponent, LoginComponent, NavbarComponent, HomeComponent
+    AppComponent, LoginComponent, NavbarComponent, HomeComponent, ApuestasComponent, PrediccionComponent, PartidoComponent
   ],
   bootstrap: [AppComponent]
 })

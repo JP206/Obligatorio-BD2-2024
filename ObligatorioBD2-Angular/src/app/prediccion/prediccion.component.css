@@ -1,0 +1,19 @@
+/* Asegúrate de que el contenedor flex tenga espacio entre los elementos */
+.d-flex {
+    gap: 20px; /* Ajusta el espacio entre el formulario y el componente partido */
+  }
+  
+  .formulario {
+    flex: 1; /* Esto asegura que el formulario ocupe un espacio proporcional */
+  }
+  
+  app-partido {
+    flex: 1; /* Esto asegura que el componente partido ocupe un espacio proporcional */
+  }
+  
+  /* Ajusta el tamaño del formulario y del componente partido */
+  .formulario,
+  app-partido {
+    max-width: 50%; /* Esto asegura que no se excedan del 50% cada uno */
+  }
+  
