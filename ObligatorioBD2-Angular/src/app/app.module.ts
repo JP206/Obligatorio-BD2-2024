@@ -19,7 +19,9 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'fixture', component: FixtureComponent},
   {path: 'apuesta', component: ApuestasComponent},
-  {path: 'leaderboard', component: LeaderboardComponent}
+  {path: 'leaderboard', component: LeaderboardComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent}
 ];
 
 @NgModule({
