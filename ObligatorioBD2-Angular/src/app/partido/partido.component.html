@@ -1,18 +1,18 @@
-<div class="container my-4">
+<div class="container my-4" *ngIf="partido">
     <div class="row align-items-start">
       <!-- Formulario de apuesta -->
       <div class="col-4" *ngIf="formularios">
         <form class="formulario">
           <!-- Tu contenido del formulario -->
           <div class="mb-3">
-            <label for="goles1" class="form-label">Goles Equipo 1</label>
+            <label for="goles1" class="form-label">Goles {{ partido.equipo1 }}</label>
             <input type="number" class="form-control" id="goles1" value="0">
           </div>
           <div class="mb-3">
-            <label for="goles2" class="form-label">Goles Equipo 2</label>
+            <label for="goles2" class="form-label">Goles {{ partido.equipo2 }}</label>
             <input type="number" class="form-control" id="goles2" value="0">
           </div>
-          <button class="btn btn-primary" [class.disabled]="!habilitado">Apostar</button>
+          <button class="btn btn-primary" [class.disabled]="!habilitado" onclick="apostar()">Apostar</button>
         </form>
       </div>
       

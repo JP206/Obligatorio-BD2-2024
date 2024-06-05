@@ -28,13 +28,6 @@
     margin-top: 10px;
     font-size: 0.8em; /* Ajusta el tamaño de fuente */
   }
-  
-  .resultado {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1em; /* Ajusta el tamaño de fuente */
-  }
 
   .mb-3 {
     margin-bottom: 5px; /* Reduce el margen inferior */
@@ -67,4 +60,17 @@
   .partido {
     padding-right: 0px;
   }
+
+  .resultado {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    font-size: 1.2em; /* Ajusta el tamaño de fuente */
+  }
   
+  .input-goles {
+    width: 30px; /* Establece el ancho del input a 30px */
+    margin: 0 5px; /* Añade margen horizontal entre los inputs */
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Resto de navegadores */
+  }

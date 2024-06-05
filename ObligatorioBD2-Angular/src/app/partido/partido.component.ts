@@ -25,5 +25,9 @@ export class PartidoComponent implements OnInit {
       }
     }
   }
+  
+  apostar(): void {
+
+  }
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Partido } from '../partido';
+import { Equipo } from '../equipo';
 
 @Component({
   selector: 'app-partido-fixture',
@@ -9,8 +10,9 @@ import { Partido } from '../partido';
 export class PartidoFixtureComponent implements OnInit {
   @Input() partido: Partido | undefined;
   @Input() formularios: boolean = false;
-  
+  @Input() admin: boolean = false;
   habilitado: boolean = true;
+  equipos: Equipo[] = [];
 
   constructor() { }
 
@@ -25,4 +27,18 @@ export class PartidoFixtureComponent implements OnInit {
       }
     }
   }
+
+  openModal(grupo: string) {
+    const modal = document.getElementById(`Modal`);
+    if (modal) {
+    modal.style.display = "block";}
+  }
+
+  closeModal() {
+    const modal = document.getElementById(`Modal`);
+    if (modal) {
+    modal.style.display = "none";}
+  }
+
+  
 }
