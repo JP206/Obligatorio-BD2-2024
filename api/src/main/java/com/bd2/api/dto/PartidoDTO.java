@@ -1,22 +1,26 @@
 package com.bd2.api.dto;
 
 import java.sql.Date;
+import java.sql.Time;
 
 public class PartidoDTO extends LogicalDelete {
 
-    private long id;
+    private int id;
     private String equipo1;
     private String equipo2;
     private int golesEquipo1;
     private int golesEquipo2;
     private String etapa;
     private Date fecha;
+    private Time hora;
+    private String estadio;
+    private int posicionFormulario;
     
-    public long getId() {
+    public int getId() {
         return id;
     }
     
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
     
@@ -68,11 +72,35 @@ public class PartidoDTO extends LogicalDelete {
         this.fecha = fecha;
     }
     
+    public Time getHora() {
+        return hora;
+    }
+    
+    public void setHora(Time hora) {
+        this.hora = hora;
+    }
+    
     public void borrarPartido() {
         borrar();
     }
     
     public boolean getPartidoBorrado() {
         return getBorrado();
+    }
+    
+    public String getEstadio() {
+        return estadio;
+    }
+    
+    public void setEstadio(String estadio) {
+        this.estadio = estadio;
+    }
+    
+    public int getPosicionFormulario() {
+        return posicionFormulario;
+    }
+    
+    public void setPosicionFormulario(int posicionFormulario) {
+        this.posicionFormulario = posicionFormulario;
     }
 }

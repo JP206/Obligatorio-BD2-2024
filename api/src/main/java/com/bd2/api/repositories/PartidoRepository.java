@@ -3,6 +3,7 @@ package com.bd2.api.repositories;
 import com.bd2.api.dto.PartidoDTO;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
@@ -15,27 +16,26 @@ public class PartidoRepository implements IPartidoRepository {
     @Override
     @Async
     public LinkedList<PartidoDTO> getPartidos() {
-        LinkedList<PartidoDTO> listaResultado = new LinkedList<PartidoDTO>();
+        LinkedList<PartidoDTO> listaResultado = new LinkedList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password"); 
+                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from Partidos");
-            rs.next(); //para ir al primer registro, cuando se crea no apunta a nada y da excepcion
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Partidos WHERE NOT borrado");
             while (rs.next()) {
-                //si es true, significa que esta borrado y no hay que devolverlo
-                if (!rs.getBoolean(8)) {
-                    PartidoDTO partido = new PartidoDTO();
-                    partido.setId(rs.getInt(1));
-                    partido.setEquipo1(rs.getString(2));
-                    partido.setEquipo2(rs.getString(3));
-                    partido.setGolesEquipo1(rs.getInt(4));
-                    partido.setGolesEquipo2(rs.getInt(5));
-                    partido.setEtapa(rs.getString(6));
-                    partido.setFecha(rs.getDate(7));
-                    listaResultado.add(partido);
-                }
+                PartidoDTO partido = new PartidoDTO();
+                partido.setId(rs.getInt(1));
+                partido.setEquipo1(rs.getString(2));
+                partido.setEquipo2(rs.getString(3));
+                partido.setGolesEquipo1(rs.getInt(4));
+                partido.setGolesEquipo2(rs.getInt(5));
+                partido.setEtapa(rs.getString(6));
+                partido.setFecha(rs.getDate(7));
+                partido.setHora(rs.getTime(8));
+                partido.setEstadio(rs.getString(9));
+                partido.setPosicionFormulario(rs.getInt(11));
+                listaResultado.add(partido);
             }
             con.close();
         } catch (Exception e) {
@@ -46,24 +46,25 @@ public class PartidoRepository implements IPartidoRepository {
 
     @Override
     @Async
-    public PartidoDTO getPartido(long id) {
+    public PartidoDTO getPartido(int id) {
         PartidoDTO partido = new PartidoDTO();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password"); 
+                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from Partidos where id = " + id);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Partidos WHERE id = " + id + " AND NOT borrado");
             rs.next();
-            if (!rs.getBoolean(8)) {
-                partido.setId(rs.getInt(1));
-                partido.setEquipo1(rs.getString(2));
-                partido.setEquipo2(rs.getString(3));
-                partido.setGolesEquipo1(rs.getInt(4));
-                partido.setGolesEquipo2(rs.getInt(5));
-                partido.setEtapa(rs.getString(6));
-                partido.setFecha(rs.getDate(7));
-            }
+            partido.setId(rs.getInt(1));
+            partido.setEquipo1(rs.getString(2));
+            partido.setEquipo2(rs.getString(3));
+            partido.setGolesEquipo1(rs.getInt(4));
+            partido.setGolesEquipo2(rs.getInt(5));
+            partido.setEtapa(rs.getString(6));
+            partido.setFecha(rs.getDate(7));
+            partido.setHora(rs.getTime(8));
+            partido.setEstadio(rs.getString(9));
+            partido.setPosicionFormulario(rs.getInt(11));
             con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -73,60 +74,81 @@ public class PartidoRepository implements IPartidoRepository {
 
     @Override
     @Async
-    public void updatePartido(PartidoDTO partido) {
+    public boolean editarPartido(PartidoDTO partido) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password"); 
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("update Partidos set equipo_1 = " + partido.getEquipo1() + 
-                    ", equipo_2 = " + partido.getEquipo2() + 
-                    ", goles_equipo_1 = " + partido.getGolesEquipo1() + 
-                    ", goles_equipo_2 = " + partido.getGolesEquipo2() +
-                    ", etapa = " + partido.getEtapa() + 
-                    ", fecha = " + partido.getFecha() + 
-                    " where id = " + partido.getId());
+                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
+            String query = "UPDATE Partidos SET equipo_1 = ?, equipo_2 = ?, goles_equipo_1 = ?, goles_equipo_2 = ?, etapa = ?, fecha = ?, hora = ?, estadio = ?, posicion_formulario = ? WHERE id = ?";
+            PreparedStatement pstmt = con.prepareStatement(query);
+
+            pstmt.setString(1, partido.getEquipo1());
+            pstmt.setString(2, partido.getEquipo2());
+            pstmt.setInt(3, partido.getGolesEquipo1());
+            pstmt.setInt(4, partido.getGolesEquipo2());
+            pstmt.setString(5, partido.getEtapa());
+            pstmt.setDate(6, partido.getFecha()); // Ensure 'partido.getFecha()' returns a valid 'yyyy-mm-dd' string
+            pstmt.setTime(7, partido.getHora()); // Ensure 'partido.getHora()' returns a valid 'HH:mm:ss' string
+            pstmt.setString(8, partido.getEstadio());
+            pstmt.setInt(9, partido.getPosicionFormulario());
+            pstmt.setInt(10, partido.getId());
+
+            int rs = pstmt.executeUpdate();
             con.close();
+
+            return rs != 0;
         } catch (Exception e) {
             System.out.println(e);
         }
+        return false;
     }
 
     @Override
     @Async
-    public void deletePartido(long id) {
+    public boolean borrarPartido(int id) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password"); 
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("update Partidos set borrado = " + true +
-                    " where id = " +id);
+                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
+            String query = "UPDATE Partidos SET borrado = true WHERE id = ?";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            
+            pstmt.setInt(1, id);
+            
+            int rs = pstmt.executeUpdate();
             con.close();
+            return rs != 0;
         } catch (Exception e) {
             System.out.println(e);
         }
+        return false;
     }
 
     @Override
     @Async
-    public void createPartido(PartidoDTO partido) {
+    public boolean crearPartido(PartidoDTO partido) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password"); 
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("insert into Partidos (equipo_1, equipo_2, goles_equipo_1, goles_equipo_2, etapa, fecha, borrado) values ("
-                    + partido.getEquipo1() + 
-                    ", " + partido.getEquipo2() + 
-                    ", " + partido.getGolesEquipo1() + 
-                    ", " + partido.getGolesEquipo2() +
-                    ", " + partido.getEtapa() + 
-                    ", " + partido.getFecha() + 
-                    ")");
+                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password");            
+            String query = "INSERT INTO Partidos (equipo_1, equipo_2, goles_equipo_1, goles_equipo_2, etapa, fecha, hora, estadio, borrado, posicion_formulario) values ("
+                    + "?, ?, -1, -1, ?, ?, ?, ?, false, ?)";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            
+            pstmt.setString(1, partido.getEquipo1());
+            pstmt.setString(2, partido.getEquipo2());
+            pstmt.setString(3, partido.getEtapa());
+            pstmt.setDate(4, partido.getFecha());
+            pstmt.setTime(5, partido.getHora());
+            pstmt.setString(6, partido.getEstadio());
+            pstmt.setInt(7, partido.getPosicionFormulario());
+            
+            int rs = pstmt.executeUpdate();
             con.close();
+            return rs != 0;
         } catch (Exception e) {
             System.out.println(e);
         }
+        return false;
     }
 }
