@@ -87,8 +87,8 @@ public class PartidoRepository implements IPartidoRepository {
             pstmt.setInt(3, partido.getGolesEquipo1());
             pstmt.setInt(4, partido.getGolesEquipo2());
             pstmt.setString(5, partido.getEtapa());
-            pstmt.setDate(6, partido.getFecha()); // Ensure 'partido.getFecha()' returns a valid 'yyyy-mm-dd' string
-            pstmt.setTime(7, partido.getHora()); // Ensure 'partido.getHora()' returns a valid 'HH:mm:ss' string
+            pstmt.setDate(6, partido.getFecha()); 
+            pstmt.setTime(7, partido.getHora()); 
             pstmt.setString(8, partido.getEstadio());
             pstmt.setInt(9, partido.getPosicionFormulario());
             pstmt.setInt(10, partido.getId());
@@ -131,7 +131,7 @@ public class PartidoRepository implements IPartidoRepository {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/obligatorio", "user", "password");            
-            String query = "INSERT INTO Partidos (equipo_1, equipo_2, goles_equipo_1, goles_equipo_2, etapa, fecha, hora, estadio, borrado, posicion_formulario) values ("
+            String query = "INSERT INTO Partidos (equipo_1, equipo_2, goles_equipo_1, goles_equipo_2, etapa, fecha, hora, estadio, borrado, posicion_formulario) VALUES ("
                     + "?, ?, -1, -1, ?, ?, ?, ?, false, ?)";
             PreparedStatement pstmt = con.prepareStatement(query);
             

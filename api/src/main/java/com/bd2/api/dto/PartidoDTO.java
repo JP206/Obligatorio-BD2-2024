@@ -80,14 +80,6 @@ public class PartidoDTO extends LogicalDelete {
         this.hora = hora;
     }
     
-    public void borrarPartido() {
-        borrar();
-    }
-    
-    public boolean getPartidoBorrado() {
-        return getBorrado();
-    }
-    
     public String getEstadio() {
         return estadio;
     }
@@ -102,5 +94,13 @@ public class PartidoDTO extends LogicalDelete {
     
     public void setPosicionFormulario(int posicionFormulario) {
         this.posicionFormulario = posicionFormulario;
+    }
+    
+    public void borrarPartido() {
+        borrar();
+    }
+    
+    public boolean getPartidoBorrado() {
+        return getBorrado();
     }
 }
