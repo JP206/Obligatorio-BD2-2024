@@ -1,7 +1,7 @@
 <!-- Image and text -->
 <nav class="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" routerLink="/home">
         <img
           src="assets/ucu.png"
           class="logo"
@@ -11,12 +11,12 @@
         <span class="brand">Penca UCU</span>
       </a>
       <div class="a_container">
-
+        <a class="link" routerLink="/fixtureadm"><div class="img-with-text"><i class="bi bi-diagram-3 h2"></i><p>FixtureAdm</p></div></a>
         <a class="link" routerLink="/fixture"><div class="img-with-text"><i class="bi bi-diagram-3 h2"></i><p>Fixture</p></div></a>
         <a class="link" routerLink="/apuesta"><div class="img-with-text"><i class="bi bi-dice-5 h2"></i><p>Apostar</p></div></a>
         <a class="link" routerLink="/perfil"><div class="img-with-text"><i class="bi bi-person-circle h2"></i><p>Perfil</p></div></a>
         <a class="link" routerLink="/leaderboard"><div class="img-with-text"><i class="bi bi-trophy h2"></i><p>Leaderboard</p></div></a>
-        <button type="button" class="btn btn-dark logout" id="logout">Log Out</button>
+        <a class="link" routerLink="/login"><button type="button" class="btn btn-dark logout" id="logout">Log Out</button></a>
       </div>
     </div>
     

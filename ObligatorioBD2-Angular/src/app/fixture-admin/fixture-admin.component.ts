@@ -2,16 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Partido } from '../partido';
 
 @Component({
-  selector: 'app-fixture',
-  templateUrl: './fixture.component.html',
-  styleUrls: ['./fixture.component.css']
+  selector: 'app-fixture-admin',
+  templateUrl: './fixture-admin.component.html',
+  styleUrls: ['./fixture-admin.component.css']
 })
-export class FixtureComponent implements OnInit {
+export class FixtureAdminComponent implements OnInit {
   partido: Partido;
   grupoA?: Partido[];
   grupoB?: Partido[];
   grupoC?: Partido[];
   grupoD?: Partido[];
+  admin: boolean = true;
   constructor() {
     this.partido = {
       id: '3',
@@ -74,4 +75,9 @@ export class FixtureComponent implements OnInit {
     if (modal) {
     modal.style.display = "none";}
   }
+
+  confirmar() {
+
+  }
 }
+

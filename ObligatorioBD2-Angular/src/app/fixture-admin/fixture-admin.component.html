@@ -4,7 +4,7 @@
 <button class="group-button top-end" (click)="openModal('grupoB')">Grupo B</button>
 <button class="group-button bottom-start" (click)="openModal('grupoC')">Grupo C</button>
 <button class="group-button bottom-end" (click)="openModal('grupoD')">Grupo D</button>
-
+<button type="button" class="btn btn-success bottom" (click)="confirmar()">Confirmar cambios</button>
 <!-- Modals -->
 <div id="grupoAModal" class="modal">
   <div class="modal-content">
@@ -13,7 +13,7 @@
     </div>
     <div class="modal-body">
       <div *ngFor="let partidoA of grupoA">
-          <app-partido-fixture [partido]="partidoA"></app-partido-fixture>
+          <app-partido-fixture [admin]="admin" [partido]="partidoA"></app-partido-fixture>
       </div> 
     </div>
   </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="modal-body">
       <div *ngFor="let partidoB of grupoB">
-          <app-partido-fixture [partido]="partidoB"></app-partido-fixture>
+          <app-partido-fixture [admin]="admin" [partido]="partidoB"></app-partido-fixture>
       </div> 
     </div>
   </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="modal-body">
       <div *ngFor="let partidoC of grupoC">
-          <app-partido-fixture [partido]="partidoC"></app-partido-fixture>
+          <app-partido-fixture [admin]="admin" [partido]="partidoC"></app-partido-fixture>
       </div> 
     </div>
   </div>
@@ -52,7 +52,7 @@
     </div>
     <div class="modal-body">
       <div *ngFor="let partidoD of grupoD">
-          <app-partido-fixture [partido]="partidoD"></app-partido-fixture>
+          <app-partido-fixture [admin]="admin" [partido]="partidoD"></app-partido-fixture>
       </div> 
     </div>
   </div>
@@ -63,45 +63,45 @@
     <div class="round">
         <h3>Cuartos</h3>
         <div class="match">
-                <app-partido-fixture [partido]="partido"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
         </div>
         <div class="match">
-                <app-partido-fixture [partido]="partido"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
         </div>
     </div>
     <div class="round">
         <h3>Semifinal</h3>
         <div class="match">
-            <app-partido-fixture [partido]="partido"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
         </div>
     </div>
     <div>
         <div class="round">
             <h1>Final</h1>
             <div class="match final">
-                <app-partido-fixture [partido]="partido"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
             </div>
         </div>
         <div class="round losers">
             <h4>3er y 4to puesto</h4>
             <div class="match">
-                <app-partido-fixture [partido]="partido"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
             </div>
         </div>
     </div>
     <div class="round">
         <h3>Semifinal</h3>
         <div class="match">
-            <app-partido-fixture [partido]="partido"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
         </div>
     </div>
     <div class="round">
         <h3>Cuartos</h3>
         <div class="match">
-            <app-partido-fixture [partido]="partido"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
         </div>
         <div class="match">
-            <app-partido-fixture [partido]="partido"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
         </div>
     </div>
 </div>

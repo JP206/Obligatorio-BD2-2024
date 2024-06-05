@@ -1,16 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Partido } from '../partido';
+import { Equipo } from '../equipo';
 
 @Component({
-  selector: 'app-partido',
-  templateUrl: './partido.component.html',
-  styleUrls: ['./partido.component.css']
+  selector: 'app-partido-fixture',
+  templateUrl: './partido-fixture.component.html',
+  styleUrls: ['./partido-fixture.component.css']
 })
-export class PartidoComponent implements OnInit {
+export class PartidoFixtureComponent implements OnInit {
   @Input() partido: Partido | undefined;
   @Input() formularios: boolean = false;
-  
+  @Input() admin: boolean = false;
   habilitado: boolean = true;
+  equipos: Equipo[] = [];
 
   constructor() { }
 
@@ -25,9 +27,18 @@ export class PartidoComponent implements OnInit {
       }
     }
   }
-  
-  apostar(): void {
 
+  openModal(grupo: string) {
+    const modal = document.getElementById(`Modal`);
+    if (modal) {
+    modal.style.display = "block";}
   }
-}
 
+  closeModal() {
+    const modal = document.getElementById(`Modal`);
+    if (modal) {
+    modal.style.display = "none";}
+  }
+
+  
+}

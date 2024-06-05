@@ -1,0 +1,30 @@
+/* Contenedor de la tabla Leaderboard */
+.leaderboard-container {
+    max-height: 400px; /* Altura máxima para el contenedor */
+    overflow-y: auto; /* Agrega scroll vertical si es necesario */
+  }
+  
+  /* Estilos para la tabla Leaderboard */
+  .leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .leaderboard th, .leaderboard td {
+    padding: 12px; /* Aumenta el espacio interno */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .leaderboard th {
+    background-color: #f2f2f2;
+  }
+  
+  .leaderboard tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .leaderboard tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
