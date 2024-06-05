@@ -6,8 +6,8 @@ import java.util.LinkedList;
 public interface IPartidoRepository {
     
     public LinkedList<PartidoDTO> getPartidos();
-    public PartidoDTO getPartido(long id);
-    public void updatePartido(PartidoDTO partido);
-    public void deletePartido(long id);
-    public void createPartido(PartidoDTO partido);
+    public PartidoDTO getPartido(int id);
+    public boolean editarPartido(PartidoDTO partido);
+    public boolean borrarPartido(int id);
+    public boolean crearPartido(PartidoDTO partido);
 }
