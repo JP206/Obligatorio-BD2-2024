@@ -75,7 +75,7 @@ padding-left: 15px;
 }
 
 .link:hover {
-    color: rgb(8, 11, 179);
+    color: #cacafa;
     transition: 0.5s;
     cursor: pointer;
 }

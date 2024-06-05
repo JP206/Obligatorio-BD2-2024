@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Partido } from '../partido';
 
 @Component({
-  selector: 'app-partido',
-  templateUrl: './partido.component.html',
-  styleUrls: ['./partido.component.css']
+  selector: 'app-partido-fixture',
+  templateUrl: './partido-fixture.component.html',
+  styleUrls: ['./partido-fixture.component.css']
 })
-export class PartidoComponent implements OnInit {
+export class PartidoFixtureComponent implements OnInit {
   @Input() partido: Partido | undefined;
   @Input() formularios: boolean = false;
   
@@ -26,4 +26,3 @@ export class PartidoComponent implements OnInit {
     }
   }
 }
-

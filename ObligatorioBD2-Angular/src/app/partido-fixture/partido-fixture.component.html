@@ -1,0 +1,18 @@
+
+    <div class="row align-items-center text-center partido" *ngIf="partido">
+      <div class="col-4">
+        <img [src]="partido.imagenEquipo1" class="img-fluid equipo-imagen" [alt]="partido.equipo1">
+        <div class="equipo-nombre">{{ partido.equipo1 }}</div>
+      </div>
+      <div class="col-4">
+        <div class="resultado">
+          <span class="goles">{{ partido.equipo1Goles }}</span>
+          <span class="guion">-</span>
+          <span class="goles">{{ partido.equipo2Goles }}</span>
+        </div>
+      </div>
+      <div class="col-4">
+        <img [src]="partido.imagenEquipo2" class="img-fluid equipo-imagen" [alt]="partido.equipo2">
+        <div class="equipo-nombre">{{ partido.equipo2 }}</div>
+      </div>
+    </div>

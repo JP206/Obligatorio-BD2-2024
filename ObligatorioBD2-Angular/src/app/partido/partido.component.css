@@ -1,3 +1,4 @@
+
 .equipo-imagen {
     max-height: 100px; /* Ajusta el tamaño máximo de las imágenes según sea necesario */
   }
@@ -20,5 +21,17 @@
   
   .guion {
     margin: 0 10px;
+  }
+  
+  /* Estilos para botones deshabilitados */
+  .btn.disabled {
+    pointer-events: none; /* Evita que el botón sea clickeable */
+    opacity: 0.6; /* Hace que el botón parezca deshabilitado */
+  }
+  
+
+  .fecha-partido {
+    font-size: 1.5em; /* Tamaño de fuente más grande para la fecha */
+    margin-top: 10px; /* Espacio superior */
   }
   

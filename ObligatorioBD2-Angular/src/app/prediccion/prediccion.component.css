@@ -17,3 +17,6 @@
     max-width: 50%; /* Esto asegura que no se excedan del 50% cada uno */
   }
   
+.contenedorPartido {
+    border: 1px solid #ccc; /* Añade un borde sólido de 1px con color gris claro */
+}
