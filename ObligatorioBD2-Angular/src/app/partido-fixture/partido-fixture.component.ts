@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Partido } from '../partido';
 import { Equipo } from '../equipo';
 
@@ -12,7 +12,15 @@ export class PartidoFixtureComponent implements OnInit {
   @Input() formularios: boolean = false;
   @Input() admin: boolean = false;
   habilitado: boolean = true;
-  equipos: Equipo[] = [];
+  @Output() elegirEquipo: EventEmitter<{ idPartido: string, equipo: number }> = new EventEmitter<{ idPartido: string, equipo: number }>();
+
+  emitEvent(equipo: number) {
+    console.log('emitio evento')
+    if (this.partido) {
+      console.log('se aplico')
+      this.elegirEquipo.emit({ idPartido: this.partido?.id, equipo: equipo });
+    }
+  }
 
   constructor() { }
 
@@ -27,18 +35,4 @@ export class PartidoFixtureComponent implements OnInit {
       }
     }
   }
-
-  openModal(grupo: string) {
-    const modal = document.getElementById(`Modal`);
-    if (modal) {
-    modal.style.display = "block";}
-  }
-
-  closeModal() {
-    const modal = document.getElementById(`Modal`);
-    if (modal) {
-    modal.style.display = "none";}
-  }
-
-  
 }

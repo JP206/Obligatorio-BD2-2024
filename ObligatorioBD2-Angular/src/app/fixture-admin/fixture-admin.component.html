@@ -13,7 +13,7 @@
     </div>
     <div class="modal-body">
       <div *ngFor="let partidoA of grupoA">
-          <app-partido-fixture [admin]="admin" [partido]="partidoA"></app-partido-fixture>
+          <app-partido-fixture [admin]="admin" [partido]="partidoA" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
       </div> 
     </div>
   </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="modal-body">
       <div *ngFor="let partidoB of grupoB">
-          <app-partido-fixture [admin]="admin" [partido]="partidoB"></app-partido-fixture>
+          <app-partido-fixture [admin]="admin" [partido]="partidoB" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
       </div> 
     </div>
   </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="modal-body">
       <div *ngFor="let partidoC of grupoC">
-          <app-partido-fixture [admin]="admin" [partido]="partidoC"></app-partido-fixture>
+          <app-partido-fixture [admin]="admin" [partido]="partidoC" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
       </div> 
     </div>
   </div>
@@ -52,7 +52,7 @@
     </div>
     <div class="modal-body">
       <div *ngFor="let partidoD of grupoD">
-          <app-partido-fixture [admin]="admin" [partido]="partidoD"></app-partido-fixture>
+          <app-partido-fixture [admin]="admin" [partido]="partidoD" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
       </div> 
     </div>
   </div>
@@ -63,45 +63,58 @@
     <div class="round">
         <h3>Cuartos</h3>
         <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
         <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div class="round">
         <h3>Semifinal</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div>
         <div class="round">
             <h1>Final</h1>
             <div class="match final">
-                <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
             </div>
         </div>
         <div class="round losers">
             <h4>3er y 4to puesto</h4>
             <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
             </div>
         </div>
     </div>
     <div class="round">
         <h3>Semifinal</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div class="round">
         <h3>Cuartos</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="partido"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
+</div>
+
+<div id="ModalEquipos" class="modal" *ngIf="partido">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" (click)="closeModalEquipos()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div *ngFor="let equipo of equipos">
+        <app-equipo [equipo]="equipo" (seleccionarEquipo)="confirmarCambio($event)"></app-equipo>
+      </div> 
+    </div>
+  </div>
 </div>

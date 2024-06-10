@@ -15,6 +15,7 @@ import { PrediccionComponent } from './prediccion/prediccion.component';
 import { PartidoComponent } from './partido/partido.component';
 import { PartidoFixtureComponent } from './partido-fixture/partido-fixture.component';
 import { FixtureAdminComponent } from './fixture-admin/fixture-admin.component';
+import { EquipoComponent } from './equipo/equipo.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent, LoginComponent, NavbarComponent, HomeComponent, ApuestasComponent, PrediccionComponent, PartidoComponent, FixtureComponent, PartidoFixtureComponent,
     LeaderboardComponent,
-    FixtureAdminComponent
+    FixtureAdminComponent,
+    EquipoComponent
   ],
   bootstrap: [AppComponent]
 })

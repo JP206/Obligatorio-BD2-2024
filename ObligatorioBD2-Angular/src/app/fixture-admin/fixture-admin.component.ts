@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Partido } from '../partido';
+import { Equipo } from '../equipo';
+import { NgbInputDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-fixture-admin',
@@ -13,6 +16,10 @@ export class FixtureAdminComponent implements OnInit {
   grupoC?: Partido[];
   grupoD?: Partido[];
   admin: boolean = true;
+  equipos: Equipo[];
+  partidoSeleccionado: string = '';
+  equipoSeleccionado: number = 0;
+
   constructor() {
     this.partido = {
       id: '3',
@@ -59,6 +66,24 @@ export class FixtureAdminComponent implements OnInit {
     this.grupoB=this.grupoA;
     this.grupoC=this.grupoA;
     this.grupoD=this.grupoA;
+    this.equipos = [{
+      id: '1',
+      imagen: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
+      nombre: 'Uruguay',
+    },{
+      id: '2',
+      imagen: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
+      nombre: 'Jamaica',
+    },{
+      id: '3',
+      imagen: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
+      nombre: 'España',
+    },{
+      id: '4',
+      imagen: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
+      nombre: 'Portugal',
+    },
+    ]
    }
 
   ngOnInit(): void {
@@ -76,8 +101,28 @@ export class FixtureAdminComponent implements OnInit {
     modal.style.display = "none";}
   }
 
+  closeModalEquipos() {
+    const modal = document.getElementById('ModalEquipos');
+    if (modal) {
+    modal.style.display = "none";}
+  }
+
   confirmar() {
 
+  }
+
+  abrirSeleccion(event: {idPartido: string, equipo: number}) {
+    const modal = document.getElementById('ModalEquipos');
+    if (modal) {
+    modal.style.display = "block";}
+    console.log('se obtuvo el evento')
+    this.partidoSeleccionado = event.idPartido
+    this.equipoSeleccionado = event.equipo
+  }
+
+  confirmarCambio(idEquipo: string) {
+    // confirmar cambios
+    console.log('confirmando cambios de equipo: ' + idEquipo)
   }
 }
 
