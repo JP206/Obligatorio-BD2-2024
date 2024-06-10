@@ -18,7 +18,7 @@ public class LoginRepository implements ILoginRepository{
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Usuarios WHERE correo = '" + correo + "' AND contrasenia = '" + contrasenia + "' AND NOT borrado");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Usuarios WHERE correo LIKE '" + correo + "%' AND contrasenia LIKE '" + contrasenia + "%' AND NOT borrado");
             
             boolean resultado = rs.next();
             con.close();

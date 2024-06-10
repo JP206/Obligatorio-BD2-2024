@@ -44,7 +44,7 @@ public class PaisRepository implements IPaisRepository {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Paises WHERE nombre = '" + nombre + "'");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Paises WHERE nombre LIKE '" + nombre + "%'");
             rs.next();
             pais.setNombre(rs.getString(1));
             pais.setBandera(rs.getString(2));
