@@ -5,7 +5,11 @@ GET: localhost:8080/login
     		"correo": "juan@gmail.com",
     		"contrasenia": "juan123"
 	}
-	devuelve true si el correo y contraseña son correctos
+	devuelve un JSON:
+	{
+    		"loginExitoso": true,
+    		"esAdmin": false
+	}
 
 ### PAISES ###
 formato de un pais (JSON):
@@ -43,7 +47,38 @@ GET: localhost:8080/partido/{id}
 	devuelve el partido con ese id
 
 PUT: localhost:8080/partido/editar
-	en el body debe haber un partido con el formato, devuelve true si se pudo editar, false sino
+	en el body debe haber un array de partidos:
+[
+    	{
+        		"borrado": false,
+        		"id": 1,
+		"equipo1": "Argentina",
+		"equipo2": "Canada",
+		"golesEquipo1": -1,
+		"golesEquipo2": -1,
+        		"etapa": "Fase de grupos A",
+        		"fecha": "2024-06-20",
+        		"hora": "21:00:00",
+        		"estadio": "Mercedes-Benz Stadium",
+        		"posicionFormulario": -1,
+        		"partidoBorrado": false
+    	},
+    	{
+        		"borrado": false,
+        		"id": 2,
+        		"equipo1": "Peru",
+        		"equipo2": "Chile",
+        		"golesEquipo1": -1,
+        		"golesEquipo2": -1,
+        		"etapa": "Fase de grupos A",
+        		"fecha": "2024-06-21",
+        		"hora": "21:00:00",
+        		"estadio": "AT&T Stadium",
+        		"posicionFormulario": -1,
+		"partidoBorrado": false
+    		}
+	]
+	devuelve true si pudo hacer el update 
 
 PUT: localhost:8080/partido/eliminar/{id}
 	elimina el partido con ese id. Devuelve true si lo pudo eliminar, false sino
