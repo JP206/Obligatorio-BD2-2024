@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EquipoService } from '../equipo.service';
 import { Partido } from '../partido';
 import { Equipo } from '../equipo';
-import { NgbInputDatepicker } from '@ng-bootstrap/ng-bootstrap';
-import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-fixture-admin',
@@ -16,11 +15,12 @@ export class FixtureAdminComponent implements OnInit {
   grupoC?: Partido[];
   grupoD?: Partido[];
   admin: boolean = true;
-  equipos: Equipo[];
+  equipos: Equipo[] = [];
   partidoSeleccionado: string = '';
   equipoSeleccionado: number = 0;
+  errorMessage: string = '';
 
-  constructor() {
+  constructor(private equipoService: EquipoService) {
     this.partido = {
       id: '3',
       equipo1Goles: 3,
@@ -63,66 +63,60 @@ export class FixtureAdminComponent implements OnInit {
         fecha: new Date()
       }
     ];
-    this.grupoB=this.grupoA;
-    this.grupoC=this.grupoA;
-    this.grupoD=this.grupoA;
-    this.equipos = [{
-      id: '1',
-      imagen: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-      nombre: 'Uruguay',
-    },{
-      id: '2',
-      imagen: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-      nombre: 'Jamaica',
-    },{
-      id: '3',
-      imagen: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-      nombre: 'España',
-    },{
-      id: '4',
-      imagen: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-      nombre: 'Portugal',
-    },
-    ]
-   }
+    this.grupoB = this.grupoA;
+    this.grupoC = this.grupoA;
+    this.grupoD = this.grupoA;
+  }
 
   ngOnInit(): void {
+    this.equipoService.getEquipos().subscribe(
+      (data: Equipo[]) => {
+        this.equipos = data;
+      },
+      (error) => {
+        console.error('Error fetching equipos:', error);
+        this.errorMessage = 'Hubo un error al cargar los equipos.';
+      }
+    );
   }
 
   openModal(grupo: string) {
     const modal = document.getElementById(`${grupo}Modal`);
     if (modal) {
-    modal.style.display = "block";}
+      modal.style.display = "block";
+    }
   }
 
   closeModal(grupo: string) {
     const modal = document.getElementById(`${grupo}Modal`);
     if (modal) {
-    modal.style.display = "none";}
+      modal.style.display = "none";
+    }
   }
 
   closeModalEquipos() {
     const modal = document.getElementById('ModalEquipos');
     if (modal) {
-    modal.style.display = "none";}
+      modal.style.display = "none";
+    }
   }
 
   confirmar() {
-
+    // Código para confirmar
   }
 
   abrirSeleccion(event: {idPartido: string, equipo: number}) {
     const modal = document.getElementById('ModalEquipos');
     if (modal) {
-    modal.style.display = "block";}
-    console.log('se obtuvo el evento')
-    this.partidoSeleccionado = event.idPartido
-    this.equipoSeleccionado = event.equipo
+      modal.style.display = "block";
+    }
+    console.log('se obtuvo el evento');
+    this.partidoSeleccionado = event.idPartido;
+    this.equipoSeleccionado = event.equipo;
   }
 
-  confirmarCambio(idEquipo: string) {
-    // confirmar cambios
-    console.log('confirmando cambios de equipo: ' + idEquipo)
+  confirmarCambio(nombreEquipo: string) {
+    // Confirmar cambios
+    console.log('confirmando cambios de equipo: ' + nombreEquipo);
   }
 }
-

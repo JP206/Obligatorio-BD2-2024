@@ -16,7 +16,8 @@ import { PartidoComponent } from './partido/partido.component';
 import { PartidoFixtureComponent } from './partido-fixture/partido-fixture.component';
 import { FixtureAdminComponent } from './fixture-admin/fixture-admin.component';
 import { EquipoComponent } from './equipo/equipo.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { EquipoService } from './equipo.service';
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
@@ -34,13 +35,17 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
         appRoutes, {enableTracing: true}  // <-- debugging purposes only
         ),
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent, LoginComponent, NavbarComponent, HomeComponent, ApuestasComponent, PrediccionComponent, PartidoComponent, FixtureComponent, PartidoFixtureComponent,
     LeaderboardComponent,
     FixtureAdminComponent,
     EquipoComponent
+  ],
+  providers: [
+    EquipoService, // Añade aquí EquipoService
   ],
   bootstrap: [AppComponent]
 })

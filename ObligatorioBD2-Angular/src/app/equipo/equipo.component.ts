@@ -14,7 +14,7 @@ export class EquipoComponent implements OnInit {
     console.log('emitio evento')
     if (this.equipo) {
       console.log('se aplico')
-      this.seleccionarEquipo.emit(this.equipo.id);
+      this.seleccionarEquipo.emit(this.equipo.nombre);
     }
   }
 
