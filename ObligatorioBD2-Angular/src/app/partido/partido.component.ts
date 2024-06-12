@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Partido } from '../partido';
+import { PrediccionService } from '../prediccion.service';
 
 @Component({
   selector: 'app-partido',
@@ -10,9 +11,12 @@ export class PartidoComponent implements OnInit {
   @Input() partido: Partido | undefined;
   @Input() formularios: boolean = false;
   
+  prediccionEquipo1: number = 0;
+  prediccionEquipo2: number = 0;
+
   habilitado: boolean = true;
 
-  constructor() { }
+  constructor(private prediccionService: PrediccionService) { }
 
   ngOnInit(): void {
     if (this.partido) {
@@ -27,7 +31,7 @@ export class PartidoComponent implements OnInit {
   }
   
   apostar(): void {
-
+    //prediccionService.crearPrediccion(prediccionEquipo1, prediccionEquipo2)
   }
 }
 

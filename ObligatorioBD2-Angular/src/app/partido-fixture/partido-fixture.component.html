@@ -6,9 +6,9 @@
     </div>
     <div class="col-4">
       <div class="resultado">
-        <span class="goles">{{ partido.equipo1Goles }}</span>
+        <span class="goles">{{ partido.golesEquipo1 }}</span>
         <span class="guion">-</span>
-        <span class="goles">{{ partido.equipo2Goles }}</span>
+        <span class="goles">{{ partido.golesEquipo2 }}</span>
       </div>
     </div>
     <div class="col-4">
@@ -25,9 +25,9 @@
     </div>
     <div class="col-4 columnaMedio">
       <div class="resultado">
-        <input class="input-goles" [(ngModel)]="partido.equipo1Goles">
+        <input class="input-goles" [(ngModel)]="partido.golesEquipo1">
         <span class="guion">-</span>
-        <input class="input-goles" [(ngModel)]="partido.equipo2Goles">
+        <input class="input-goles" [(ngModel)]="partido.golesEquipo2">
       </div>
     </div>
     <div class="col-4">

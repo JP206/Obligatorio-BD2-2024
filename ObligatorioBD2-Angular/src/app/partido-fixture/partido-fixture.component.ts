@@ -12,13 +12,13 @@ export class PartidoFixtureComponent implements OnInit {
   @Input() formularios: boolean = false;
   @Input() admin: boolean = false;
   habilitado: boolean = true;
-  @Output() elegirEquipo: EventEmitter<{ idPartido: string, equipo: number }> = new EventEmitter<{ idPartido: string, equipo: number }>();
+  @Output() elegirEquipo: EventEmitter<{ partido: Partido, equipo: number }> = new EventEmitter<{ partido: Partido, equipo: number }>();
 
   emitEvent(equipo: number) {
     console.log('emitio evento')
     if (this.partido) {
       console.log('se aplico')
-      this.elegirEquipo.emit({ idPartido: this.partido?.id, equipo: equipo });
+      this.elegirEquipo.emit({ partido: this.partido, equipo: equipo });
     }
   }
 

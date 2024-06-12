@@ -1,10 +1,14 @@
+import { Time } from "@angular/common";
+
 export interface Partido {
     id: string;
-    equipo1Goles: number;
-    equipo2Goles: number;
+    golesEquipo1: number;
+    golesEquipo2: number;
     imagenEquipo1: string | undefined;
     imagenEquipo2: string | undefined;
     equipo1: string;
     equipo2: string;
     fecha: Date;
+    hora: string;
+    etapa: string;
   }

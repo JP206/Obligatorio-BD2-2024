@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Partido } from '../partido';
+import { EquipoService } from '../equipo.service';
+import { Equipo } from '../equipo';
+import { PartidoService } from '../partido.service';
 
 @Component({
   selector: 'app-fixture',
@@ -7,60 +10,40 @@ import { Partido } from '../partido';
   styleUrls: ['./fixture.component.css']
 })
 export class FixtureComponent implements OnInit {
-  partido: Partido;
-  grupoA?: Partido[];
-  grupoB?: Partido[];
-  grupoC?: Partido[];
-  grupoD?: Partido[];
-  constructor() {
-    this.partido = {
-      id: '3',
-      equipo1Goles: 3,
-      equipo2Goles: 1,
-      imagenEquipo1: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-      imagenEquipo2: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-      equipo1: 'Uruguay',
-      equipo2: 'Jamaica',
-      fecha: new Date()
-    }
-    this.grupoA = [
-      {
-        id: '1',
-        equipo1Goles: 1,
-        equipo2Goles: 0,
-        imagenEquipo1: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-        imagenEquipo2: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-        equipo1: 'Equipo 1',
-        equipo2: 'Equipo 2',
-        fecha: new Date()
-      },
-      {
-        id: '2',
-        equipo1Goles: 2,
-        equipo2Goles: 2,
-        imagenEquipo1: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-        imagenEquipo2: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-        equipo1: 'Equipo 3',
-        equipo2: 'Equipo 4',
-        fecha: new Date('2024-05-13T18:45:00')
-      },
-      {
-        id: '3',
-        equipo1Goles: 3,
-        equipo2Goles: 1,
-        imagenEquipo1: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-        imagenEquipo2: 'https://static.wixstatic.com/media/808eda_ba1d5f0dd10e4eedaaba5346e2aa1fd4~mv2.webp',
-        equipo1: 'Equipo 5',
-        equipo2: 'Equipo 6',
-        fecha: new Date()
-      }
-    ];
-    this.grupoB=this.grupoA;
-    this.grupoC=this.grupoA;
-    this.grupoD=this.grupoA;
+  cuartos: Partido[] = [];
+  semifinal: Partido[] = [];
+  final: Partido[] = [];
+  tercerCuartoPuesto: Partido[] = [];
+  grupoA: Partido[] = [];
+  grupoB: Partido[] = [];
+  grupoC: Partido[] = [];
+  grupoD: Partido[] = [];
+  equipos: Equipo[] = [];
+  errorMessage: string = '';
+
+  constructor(private equipoService: EquipoService, private partidoService: PartidoService) {
    }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
+    this.equipoService.getEquipos().subscribe(
+      (data: Equipo[]) => {
+        this.equipos = data;
+      },
+      (error) => {
+        console.error('Error fetching equipos:', error);
+        this.errorMessage = 'Hubo un error al cargar los equipos.';
+      }
+    );
+    this.partidoService.getPartidos().subscribe(
+      (data: Partido[]) => {
+        console.log('esta es la data: ', data)
+        this.asignarPartidos(data);
+      },
+      (error) => {
+        console.error('Error fetching partidos:', error);
+        this.errorMessage = 'Hubo un error al cargar los partidos.';
+      }
+    );
   }
 
   openModal(grupo: string) {
@@ -73,5 +56,35 @@ export class FixtureComponent implements OnInit {
     const modal = document.getElementById(`${grupo}Modal`);
     if (modal) {
     modal.style.display = "none";}
+  }
+
+  asignarPartidos(partidos: Partido[]) {
+    for ( const partido of partidos ) {
+      console.log(partido)
+      partido.imagenEquipo1 = this.obtenerBanderaPorNombreEquipo(partido.equipo1);
+      partido.imagenEquipo2 = this.obtenerBanderaPorNombreEquipo(partido.equipo2);
+      switch (partido.etapa) {
+        case "Fase de grupos":
+          this.grupoA?.push(partido); // TODO REVISAR COMO CONOCER LA FASE DEL GRUPO QUE PERTENECE
+          break;
+        case "Cuartos de final":
+          this.cuartos?.push(partido);
+          break;
+        case "Semifinales":
+          this.semifinal?.push(partido);
+          break;
+        case "Final":
+          this.final?.push(partido);
+          break;
+        case "3° puesto":
+          this.tercerCuartoPuesto?.push(partido);
+          break;
+      }
+    }
+  }
+
+  obtenerBanderaPorNombreEquipo(nombreEquipo: string): string {
+    const equipo = this.equipos.find(e => e.nombre === nombreEquipo);
+    return equipo ? equipo.bandera : '';
   }
 }

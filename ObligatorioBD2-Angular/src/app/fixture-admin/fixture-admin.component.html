@@ -63,50 +63,50 @@
     <div class="round">
         <h3>Cuartos</h3>
         <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="cuartos[0]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
         <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="cuartos[1]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div class="round">
         <h3>Semifinal</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="semifinal[0]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div>
         <div class="round">
             <h1>Final</h1>
             <div class="match final">
-                <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="final[0]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
             </div>
         </div>
         <div class="round losers">
             <h4>3er y 4to puesto</h4>
             <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="tercerCuartoPuesto[0]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
             </div>
         </div>
     </div>
     <div class="round">
         <h3>Semifinal</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="semifinal[1]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div class="round">
         <h3>Cuartos</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="cuartos[2]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="partido" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="cuartos[3]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
 </div>
 
-<div id="ModalEquipos" class="modal" *ngIf="partido">
+<div id="ModalEquipos" class="modal">
   <div class="modal-content">
     <div class="modal-header">
       <span class="close" (click)="closeModalEquipos()">&times;</span>
