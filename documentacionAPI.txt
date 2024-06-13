@@ -76,8 +76,8 @@ PUT: localhost:8080/partido/editar
         		"estadio": "AT&T Stadium",
         		"posicionFormulario": -1,
 		"partidoBorrado": false
-    		}
-	]
+    	}
+]
 	devuelve true si pudo hacer el update 
 
 PUT: localhost:8080/partido/eliminar/{id}
@@ -115,3 +115,26 @@ POST: localhost:8080/usuario/crearadmin
 
 POST: localhost:8080/usuario/crearalumno
 	en el body debe haber un usuario. Devuelve true si lo crea, false sino
+
+### PREDICCIONES ###
+formato de una predicción (JSON):
+{
+        	"prediccionEquipo1": 0,
+        	"prediccionEquipo2": 1,
+        	"equipo1": "Argentina",
+        	"equipo2": "Canada",
+        	"puntaje": 0
+}
+
+GET: localhost:8080/prediccion/{nombreUsuario}
+	dado el nombre de usuario, devuelve un arreglo de las predicciones que hizo
+
+POST: localhost:8080/prediccion/crear
+	en el body, enviar lo siguiente:
+	{
+    		"nombreUsuario": "juan",
+    		"prediccionEquipo1": 1,
+    		"prediccionEquipo2": 2,
+    		"posicionFormulario": 2
+	}
+	devuelve true si pudo insertar, false sino
