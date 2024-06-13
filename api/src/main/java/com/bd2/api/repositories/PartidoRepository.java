@@ -22,7 +22,7 @@ public class PartidoRepository implements IPartidoRepository {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Partidos WHERE NOT borrado");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Partidos WHERE NOT borrado ORDER BY posicion_formulario ASC");
             while (rs.next()) {
                 PartidoDTO partido = new PartidoDTO();
                 partido.setId(rs.getInt(1));
