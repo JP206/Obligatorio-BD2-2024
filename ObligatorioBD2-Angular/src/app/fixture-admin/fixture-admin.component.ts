@@ -70,7 +70,7 @@ export class FixtureAdminComponent implements OnInit {
   }
 
   confirmar() {
-    // Código para confirmar
+    //this.partidoService.actualizarPartidos(this.partidos)
   }
 
   abrirSeleccion(event: {partido: Partido, equipo: number}) {

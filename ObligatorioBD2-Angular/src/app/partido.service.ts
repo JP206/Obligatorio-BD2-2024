@@ -28,4 +28,12 @@ export class PartidoService {
     return this.http.put<Boolean>(this.apiUrl+'/editar', partido, { headers: headers });
   }
 
+  actualizarPartidos(partidos: Partido[]): Observable<Boolean> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.put<Boolean>(this.apiUrl+'/editar', partidos, { headers: headers });
+  }
+
 }
