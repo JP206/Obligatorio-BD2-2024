@@ -24,13 +24,18 @@ public class PrediccionController {
         this.prediccionRepository = prediccionRepository;
     }
     
-    @GetMapping(path = "/{nombreUsuario}")
-    public @ResponseBody LinkedList<PrediccionDTO> getPredicciones(@PathVariable String nombreUsuario) {
-        return prediccionRepository.getPredicciones(nombreUsuario);
+    @GetMapping(path = "/{correoUsuario}")
+    public @ResponseBody LinkedList<PrediccionDTO> getPredicciones(@PathVariable String correoUsuario) {
+        return prediccionRepository.getPredicciones(correoUsuario);
     }
     
     @PostMapping(path = "/crear")
     public boolean hacerPrediccion(@RequestBody HacerPrediccionDTO hacerPrediccion) {
         return prediccionRepository.hacerPrediccion(hacerPrediccion);
+    }
+    
+    @PostMapping(path = "/actualizar")
+    public boolean actualizarPrediccion(@RequestBody HacerPrediccionDTO hacerPrediccion) {
+        return prediccionRepository.actualizarPrediccion(hacerPrediccion);
     }
 }

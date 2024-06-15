@@ -1,11 +1,16 @@
 package com.bd2.api.dto;
 
+import java.sql.Date;
+import java.sql.Time;
+
 public class PrediccionDTO {
     
     private int prediccionEquipo1;
     private int prediccionEquipo2;
     private String equipo1;
     private String equipo2;
+    private Date fecha;
+    private Time hora;
     private int puntaje;
 
     public int getPrediccionEquipo1() {
@@ -38,6 +43,22 @@ public class PrediccionDTO {
 
     public void setEquipo2(String equipo2) {
         this.equipo2 = equipo2;
+    }
+    
+    public Date getFecha() {
+        return fecha;
+    }
+    
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    
+    public Time getHora() {
+        return hora;
+    }
+    
+    public void setHora(Time hora) {
+        this.hora = hora;
     }
 
     public int getPuntaje() {

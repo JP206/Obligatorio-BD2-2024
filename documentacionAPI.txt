@@ -117,24 +117,37 @@ POST: localhost:8080/usuario/crearalumno
 	en el body debe haber un usuario. Devuelve true si lo crea, false sino
 
 ### PREDICCIONES ###
-formato de una predicción (JSON):
-{
-        	"prediccionEquipo1": 0,
-        	"prediccionEquipo2": 1,
-        	"equipo1": "Argentina",
-        	"equipo2": "Canada",
-        	"puntaje": 0
-}
 
-GET: localhost:8080/prediccion/{nombreUsuario}
-	dado el nombre de usuario, devuelve un arreglo de las predicciones que hizo
+GET: localhost:8080/prediccion/{correoUsuario}
+	dado el correo del usuario, devuelve un arreglo de las predicciones que hizo con el siguiente formato:
+	{
+        		"prediccionEquipo1": 0,
+       		"prediccionEquipo2": 1,
+        		"equipo1": "Argentina",
+        		"equipo2": "Canada",
+        		"fecha": "2024-06-20",
+        		"hora": "21:00:00",
+        		"puntaje": 0
+    	}
 
 POST: localhost:8080/prediccion/crear
 	en el body, enviar lo siguiente:
 	{
-    		"nombreUsuario": "juan",
+    		"correoUsuario": "juan@gmail.com",
     		"prediccionEquipo1": 1,
     		"prediccionEquipo2": 2,
-    		"posicionFormulario": 2
+    		"equipo1": "colombia",
+    		"equipo2": "brasil" 
 	}
 	devuelve true si pudo insertar, false sino
+
+POST: localhost:8080/prediccion/actualizar
+	en el body:
+	{
+   		"correoUsuario": "juan@gmail.com",
+    		"prediccionEquipo1": 6,
+    		"prediccionEquipo2": 0,
+    		"equipo1": "colombia",
+    		"equipo2": "brasil" 
+	}
+	devuelve true si pudo actualizar esa predicción, false sino
