@@ -14,6 +14,7 @@ export class PrediccionUsuarioComponent implements OnInit {
   usuario: string = "juan@gmail.com"; // TODO QUE OBTENGA EL NOMBRE DE LOCALSTORAGE O NO SE.
   errorMessage: string = "";
   equipos: Equipo[] = [];
+  puntajeTotal: number = 0;
   constructor(private prediccionService: PrediccionService, private equipoService: EquipoService) { }
 
   ngOnInit(): void {
@@ -32,6 +33,9 @@ export class PrediccionUsuarioComponent implements OnInit {
           if (prediccion.equipo1 && prediccion.equipo2) {
             prediccion.imagenEquipo1 = this.obtenerBanderaPorNombreEquipo(prediccion.equipo1);
             prediccion.imagenEquipo2 = this.obtenerBanderaPorNombreEquipo(prediccion.equipo2);
+          }
+          if (prediccion.puntaje) {
+            this.puntajeTotal += prediccion.puntaje;
           }
         }
         this.predicciones = data;
