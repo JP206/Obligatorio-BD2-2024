@@ -8,4 +8,5 @@ public interface IPrediccionRepository {
     
     public LinkedList<PrediccionDTO> getPredicciones(String nombreUsuario);
     public boolean hacerPrediccion(HacerPrediccionDTO hacerPrediccion);
+    public boolean actualizarPrediccion(HacerPrediccionDTO hacerPrediccion);
 }

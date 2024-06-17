@@ -2,17 +2,18 @@ package com.bd2.api.dto;
 
 public class HacerPrediccionDTO {
     
-    private String nombreUsuario;
+    private String correoUsuario;
     private int prediccionEquipo1;
     private int prediccionEquipo2;
-    private int posicionFormulario;
+    private String equipo1;
+    private String equipo2;
     
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getCorreoUsuario() {
+        return correoUsuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setCorreoUsuario(String correoUsuario) {
+        this.correoUsuario = correoUsuario;
     }
 
     public int getPrediccionEquipo1() {
@@ -31,11 +32,19 @@ public class HacerPrediccionDTO {
         this.prediccionEquipo2 = prediccionEquipo2;
     }
 
-    public int getPosicionFormulario() {
-        return posicionFormulario;
+    public String getEquipo1() {
+        return equipo1;
     }
 
-    public void setPosicionFormulario(int posicionFormulario) {
-        this.posicionFormulario = posicionFormulario;
+    public void setEquipo1(String equipo1) {
+        this.equipo1 = equipo1;
+    }
+
+    public String getEquipo2() {
+        return equipo2;
+    }
+
+    public void setEquipo2(String equipo2) {
+        this.equipo2 = equipo2;
     }
 }
