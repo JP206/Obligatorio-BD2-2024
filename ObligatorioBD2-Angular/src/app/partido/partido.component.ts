@@ -25,7 +25,8 @@ export class PartidoComponent implements OnInit {
   ngOnInit(): void {
     if (this.partido) {
       const now = new Date();
-      const partidoFecha = new Date(this.partido.fecha);
+      const fechaHoraString = `${this.partido.fecha}T${this.partido.hora}`;
+      const partidoFecha = new Date(fechaHoraString);
       const diff = (partidoFecha.getTime() - now.getTime()) / 60000; // diferencia en minutos
 
       if (diff < 60) {

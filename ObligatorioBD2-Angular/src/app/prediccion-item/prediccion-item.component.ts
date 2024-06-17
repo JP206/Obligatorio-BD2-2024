@@ -32,6 +32,16 @@ export class PrediccionItemComponent implements OnInit {
         this.errorMessage = 'Hubo un error al cargar los equipos.';
       }
     );
+    if (this.prediccion) {
+      const now = new Date();
+      const fechaHoraString = `${this.prediccion.fecha}T${this.prediccion.hora}`;
+      const prediccionFecha = new Date(fechaHoraString);
+      const diff = (prediccionFecha.getTime() - now.getTime()) / 60000; // diferencia en minutos
+
+      if (diff < 60) {
+        this.habilitado = false;
+      }
+    }
   }
 
   obtenerBanderaPorNombreEquipo(nombreEquipo: string): string {

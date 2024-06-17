@@ -7,4 +7,6 @@ export type Prediccion = {
     puntaje: number | undefined;
     imagenEquipo1: string | undefined;
     imagenEquipo2: string | undefined;
+    fecha: string | undefined;
+    hora: string | undefined;
   }
