@@ -141,7 +141,7 @@ POST: localhost:8080/prediccion/crear
 	}
 	devuelve true si pudo insertar, false sino
 
-POST: localhost:8080/prediccion/actualizar
+PUT: localhost:8080/prediccion/actualizar
 	en el body:
 	{
    		"correoUsuario": "juan@gmail.com",
@@ -151,3 +151,19 @@ POST: localhost:8080/prediccion/actualizar
     		"equipo2": "brasil" 
 	}
 	devuelve true si pudo actualizar esa predicción, false sino
+
+### LEADERBOARD ###
+GET: localhost:8080/alumno/leaderboard
+	devuelve nomre, apellido y puntaje ordenado de mayor a menor:
+	[
+    		{
+        		"nombre": "pedro",
+        		"apellido": "gonzalez",
+        		"puntaje": 6
+    		},
+    		{
+        		"nombre": "juan",
+        		"apellido": "perez",
+        		"puntaje": 4
+    		}
+	]

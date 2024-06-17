@@ -99,20 +99,28 @@ INSERT INTO Usuarios (nombre, apellido, correo, contrasenia, borrado) VALUES
 
 INSERT INTO Administradores (id) VALUES (3);
 
-INSERT INTO Alumnos (id, campeon, subcampeon) VALUES (1, 'Uruguay', 'Brasil'), (2, 'Argentina', 'Mexico');
+INSERT INTO Alumnos (id, campeon, subcampeon) VALUES 
+    (1, 'Uruguay', 'Brasil'), 
+    (2, 'Argentina', 'Mexico');
 
-INSERT INTO Carreras (Carreras.nombre) VALUES ('Informatica'), ('Abogacia'), ('Medicina');
+INSERT INTO Carreras (Carreras.nombre) VALUES 
+    ('Informatica'), 
+    ('Abogacia'), 
+    ('Medicina');
 
-INSERT INTO Cursa (nombre_carrera, id_alumno, borrado) VALUES ('Abogacia', 1, false), ('Informatica', 2, false);
+INSERT INTO Cursa (nombre_carrera, id_alumno, borrado) VALUES 
+    ('Abogacia', 1, false), 
+    ('Informatica', 2, false);
 
-INSERT INTO Etapas (etapa) VALUES ('Fase de grupos A'),
-                                  ('Fase de grupos B'),
-                                  ('Fase de grupos C'),
-                                  ('Fase de grupos D'),
-                                  ('Cuartos de final'),
-                                  ('Semifinales'),
-                                  ('3° puesto'),
-                                  ('Final');
+INSERT INTO Etapas (etapa) VALUES 
+    ('Fase de grupos A'),
+    ('Fase de grupos B'),
+    ('Fase de grupos C'),
+    ('Fase de grupos D'),
+    ('Cuartos de final'),
+    ('Semifinales'),
+    ('3° puesto'),
+    ('Final');
 
 INSERT INTO Paises (nombre, bandera) VALUES
     ('Argentina', 'https://i.pinimg.com/736x/8c/4b/e0/8c4be0d18947b001c8516a5da134d121.jpg'),
@@ -130,7 +138,8 @@ INSERT INTO Paises (nombre, bandera) VALUES
     ('Colombia', 'https://i.pinimg.com/736x/94/89/00/94890093ffe02179022cb0f6d423842b.jpg'),
     ('Paraguay', 'https://i.pinimg.com/736x/54/eb/ed/54ebed9b415e2d7c3d200d9157ebe6ac.jpg'),
     ('Canada', 'https://i.pinimg.com/736x/62/9f/08/629f08cc1d11182e1159a7cf874aca94.jpg'),
-    ('Costa Rica', 'https://i.pinimg.com/736x/4a/66/aa/4a66aa187af2070bdc8871035cdd60f7.jpg');
+    ('Costa Rica', 'https://i.pinimg.com/736x/4a/66/aa/4a66aa187af2070bdc8871035cdd60f7.jpg'),
+    ('Vacio', 'https://i.pinimg.com/736x/4a/74/85/4a74855403c94fe8bfe62af13b07ab55.jpg');
 
 INSERT INTO Estadios (nombre, ciudad, imagen, capacidad) VALUES
     ('Mercedes-Benz Stadium', 'Atlanta', 'https://i.pinimg.com/736x/1c/17/c3/1c17c3f190c33afe2fb03241a48b5103.jpg', 71000),
@@ -143,50 +152,52 @@ INSERT INTO Estadios (nombre, ciudad, imagen, capacidad) VALUES
     ('State Farm Stadium', 'Glendale', 'https://i.pinimg.com/736x/59/90/17/599017961082e0ba05c2ab4734d4f458.jpg', 63400),
     ('NRG Stadium', 'Houston', 'https://i.pinimg.com/736x/f8/53/cc/f853cc3195c9584c7436683211369dce.jpg', 72220),
     ('SoFI Stadium', 'Inglewood', 'https://i.pinimg.com/736x/8f/9c/c5/8f9cc54beb537b767996b5f1b5dd845b.jpg', 70000),
-    ('Children\'s Mercy Park', 'Kansas City', 'https://i.pinimg.com/736x/6e/2b/ea/6e2bea1d4653a8fa7e59b632c9339f34.jpg', 185000),
+    ('Children’s Mercy Park', 'Kansas City', 'https://i.pinimg.com/736x/6e/2b/ea/6e2bea1d4653a8fa7e59b632c9339f34.jpg', 185000),
     ('Allegiant Stadium', 'Las Vegas', 'https://i.pinimg.com/736x/74/57/e4/7457e44a2d21d2df7415287c96be3e3a.jpg', 65000),
     ('Inter&Co Stadium', 'Orlando', 'https://i.pinimg.com/736x/a8/c8/c0/a8c8c0a90744062906007c7a84bf1fbf.jpg', 25500),
     ('Levi’s Stadium', 'Santa Clara', 'https://i.pinimg.com/736x/1f/b8/80/1fb880040f79fb3244a016477c5bd7ad.jpg', 68500);
 
 INSERT INTO Partidos (equipo_1, equipo_2, goles_equipo_1, goles_equipo_2, etapa, fecha, hora, estadio, borrado, posicion_formulario) VALUES
-     ('Argentina', 'Canada', -1, -1, 'Fase de grupos A', '2024/06/20', '21:00:00', 'Mercedes-Benz Stadium', false, 0),
-     ('Peru', 'Chile', -1, -1, 'Fase de grupos A', '2024/06/21', '21:00:00', 'AT&T Stadium', false, 1),
-     ('Ecuador', 'Venezuela', -1, -1, 'Fase de grupos B', '2024/06/22', '19:00:00', 'Levi’s Stadium', false, 6),
-     ('Mexico', 'Jamaica', -1, -1, 'Fase de grupos B', '2024/06/22', '22:00:00', 'NRG Stadium', false, 7),
-     ('Estados Unidos', 'Bolivia', -1, -1, 'Fase de grupos C', '2024/06/23', '19:00:00', 'AT&T Stadium', false, 12),
-     ('Uruguay', 'Panama', -1, -1, 'Fase de grupos C', '2024/06/23', '22:00:00', 'Hard Rock Stadium', false, 13),
-     ('Colombia', 'Paraguay', -1, -1, 'Fase de grupos D', '2024/06/24', '19:00:00', 'NRG Stadium', false, 18),
-     ('Brasil', 'Costa Rica', -1, -1, 'Fase de grupos D', '2024/06/24', '22:00:00', 'SoFI Stadium', false, 19),
-     ('Peru', 'Canada', -1, -1, 'Fase de grupos A', '2024/06/25', '19:00:00', 'Children\'s Mercy Park', false, 2),
-     ('Chile', 'Argentina', -1, -1, 'Fase de grupos A', '2024/06/25', '22:00:00', 'MetLife Stadium', false, 3),
-     ('Ecuador', 'Jamaica', -1 ,-1, 'Fase de grupos B', '2024/06/26', '19:00:00', 'Allegiant Stadium', false, 8),
-     ('Venezuela', 'México', -1, -1, 'Fase de grupos B', '2024/06/26', '22:00:00', 'SoFI Stadium', false, 9),
-     ('Panama', 'Estados Unidos', -1, -1, 'Fase de grupos C', '2024/06/27', '19:00:00', 'Mercedes-Benz Stadium', false, 14),
-     ('Uruguay', 'Bolivia', -1, -1, 'Fase de grupos C', '2024/06/27', '22:00:00', 'MetLife Stadium', false, 15),
-     ('Colombia', 'Costa Rica', -1, -1, 'Fase de grupos D', '2024/06/28', '19:00:00', 'State Farm Stadium', false, 20),
-     ('Paraguay', 'Brasil', -1, -1, 'Fase de grupos D', '2024/06/28', '22:00:00', 'Allegiant Stadium', false, 21),
-     ('Argentina', 'Peru', -1, -1, 'Fase de grupos A', '2024/06/29', '21:00:00', 'Hard Rock Stadium', false, 4),
-     ('Canada', 'Chile', -1, -1, 'Fase de grupos A', '2024/06/29', '21:00:00', 'Inter&Co Stadium', false, 5),
-     ('Mexico', 'Ecuador', -1, -1, 'Fase de grupos B', '2024/06/30', '21:00:00', 'State Farm Stadium', false, 10),
-     ('Jamaica', 'Venezuela', -1, -1, 'Fase de grupos B', '2024/06/30', '21:00:00', 'Q2 Stadium', false, 11),
-     ('Bolivia', 'Panama', -1, -1, 'Fase de grupos C', '2024/07/01', '22:00:00', 'Inter&Co Stadium', false, 16),
-     ('Estados Unidos', 'Uruguay', -1, -1, 'Fase de grupos C', '2024/07/01', '22:00:00', 'GEHA Field at Arrowhead Stadium', false, 17),
-     ('Brasil', 'Colombia', -1, -1, 'Fase de grupos D', '2024/07/02', '22:00:00', 'Levi’s Stadium', false, 22),
-     ('Costa Rica', 'Paraguay', -1, -1, 'Fase de grupos D', '2024/07/02', '22:00:00', 'Q2 Stadium', false, 23),
-     (null, null, -1, -1, 'Cuartos de final', null, null, null, null, 24),
-     (null, null, -1, -1, 'Cuartos de final', null, null, null, null, 25),
-     (null, null, -1, -1, 'Cuartos de final', null, null, null, null, 26),
-     (null, null, -1, -1, 'Cuartos de final', null, null, null, null, 27),
-     (null, null, -1, -1, 'Semifinales', null, null, null, null, 28),
-     (null, null, -1, -1, 'Semifinales', null, null, null, null, 29),
-     (null, null, -1, -1, 'Final', null, null, null, null, 30),
-     (null, null, -1, -1, '3° puesto', null, null, null, null, 31);
+    ('Argentina', 'Canada', -1, -1, 'Fase de grupos A', '2024/06/20', '21:00:00', 'Mercedes-Benz Stadium', false, 0),
+    ('Peru', 'Chile', -1, -1, 'Fase de grupos A', '2024/06/21', '21:00:00', 'AT&T Stadium', false, 1),
+    ('Ecuador', 'Venezuela', -1, -1, 'Fase de grupos B', '2024/06/22', '19:00:00', 'Levi’s Stadium', false, 6),
+    ('Mexico', 'Jamaica', -1, -1, 'Fase de grupos B', '2024/06/22', '22:00:00', 'NRG Stadium', false, 7),
+    ('Estados Unidos', 'Bolivia', -1, -1, 'Fase de grupos C', '2024/06/23', '19:00:00', 'AT&T Stadium', false, 12),
+    ('Uruguay', 'Panama', -1, -1, 'Fase de grupos C', '2024/06/23', '22:00:00', 'Hard Rock Stadium', false, 13),
+    ('Colombia', 'Paraguay', -1, -1, 'Fase de grupos D', '2024/06/24', '19:00:00', 'NRG Stadium', false, 18),
+    ('Brasil', 'Costa Rica', -1, -1, 'Fase de grupos D', '2024/06/24', '22:00:00', 'SoFI Stadium', false, 19),
+    ('Peru', 'Canada', -1, -1, 'Fase de grupos A', '2024/06/25', '19:00:00', 'Children’s Mercy Park', false, 2),
+    ('Chile', 'Argentina', -1, -1, 'Fase de grupos A', '2024/06/25', '22:00:00', 'MetLife Stadium', false, 3),
+    ('Ecuador', 'Jamaica', -1 ,-1, 'Fase de grupos B', '2024/06/26', '19:00:00', 'Allegiant Stadium', false, 8),
+    ('Venezuela', 'México', -1, -1, 'Fase de grupos B', '2024/06/26', '22:00:00', 'SoFI Stadium', false, 9),
+    ('Panama', 'Estados Unidos', -1, -1, 'Fase de grupos C', '2024/06/27', '19:00:00', 'Mercedes-Benz Stadium', false, 14),
+    ('Uruguay', 'Bolivia', -1, -1, 'Fase de grupos C', '2024/06/27', '22:00:00', 'MetLife Stadium', false, 15),
+    ('Colombia', 'Costa Rica', -1, -1, 'Fase de grupos D', '2024/06/28', '19:00:00', 'State Farm Stadium', false, 20),
+    ('Paraguay', 'Brasil', -1, -1, 'Fase de grupos D', '2024/06/28', '22:00:00', 'Allegiant Stadium', false, 21),
+    ('Argentina', 'Peru', -1, -1, 'Fase de grupos A', '2024/06/29', '21:00:00', 'Hard Rock Stadium', false, 4),
+    ('Canada', 'Chile', -1, -1, 'Fase de grupos A', '2024/06/29', '21:00:00', 'Inter&Co Stadium', false, 5),
+    ('Mexico', 'Ecuador', -1, -1, 'Fase de grupos B', '2024/06/30', '21:00:00', 'State Farm Stadium', false, 10),
+    ('Jamaica', 'Venezuela', -1, -1, 'Fase de grupos B', '2024/06/30', '21:00:00', 'Q2 Stadium', false, 11),
+    ('Bolivia', 'Panama', -1, -1, 'Fase de grupos C', '2024/07/01', '22:00:00', 'Inter&Co Stadium', false, 16),
+    ('Estados Unidos', 'Uruguay', -1, -1, 'Fase de grupos C', '2024/07/01', '22:00:00', 'GEHA Field at Arrowhead Stadium', false, 17),
+    ('Brasil', 'Colombia', -1, -1, 'Fase de grupos D', '2024/07/02', '22:00:00', 'Levi’s Stadium', false, 22),
+    ('Costa Rica', 'Paraguay', -1, -1, 'Fase de grupos D', '2024/07/02', '22:00:00', 'Q2 Stadium', false, 23),
+    ('Vacio', 'Vacio', -1, -1, 'Cuartos de final', '2024/07/04', '20:00:00', 'NRG Stadium', false, 24),
+    ('Vacio', 'Vacio', -1, -1, 'Cuartos de final', '2024/07/05', '20:00:00', 'AT&T Stadium', false, 25),
+    ('Vacio', 'Vacio', -1, -1, 'Cuartos de final', '2024/07/06', '18:00:00', 'Allegiant Stadium', false, 26),
+    ('Vacio', 'Vacio', -1, -1, 'Cuartos de final', '2024/07/06', '15:00:00', 'State Farm Stadium', false, 27),
+    ('Vacio', 'Vacio', -1, -1, 'Semifinales', '2024/07/09', '20:00:00', 'MetLife Stadium', false, 28),
+    ('Vacio', 'Vacio', -1, -1, 'Semifinales', '2024/07/10', '20:00:00', 'Bank of America Stadium', false, 29),
+    ('Vacio', 'Vacio', -1, -1, 'Final', '2024/07/14', '20:00:00', 'Hard Rock Stadium', false, 30),
+    ('Vacio', 'Vacio', -1, -1, '3° puesto', '2024/07/13', '20:00:00', 'Bank of America Stadium', false, 31);
 
-INSERT INTO Puntajes (tipo, puntaje) VALUES ('Exacto', 4),
-                                            ('Correcto', 2),
-                                            ('Campeon', 10),
-                                            ('Subcampeon', 5),
-                                            ('No determinado', 0);
+INSERT INTO Puntajes (tipo, puntaje) VALUES 
+    ('Exacto', 4),
+    ('Correcto', 2),
+    ('Incorrecto', 0),
+    ('Campeon', 10),
+    ('Subcampeon', 5),
+    ('No determinado', 0);
 
 INSERT INTO Predicciones (prediccion_equipo_1, prediccion_equipo_2, id_partido, id_alumno, tipo_puntaje) VALUES
     (0, 1, 1, 1, 'No determinado');
