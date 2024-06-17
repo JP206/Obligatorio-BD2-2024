@@ -58,8 +58,8 @@ public class PrediccionRepository implements IPrediccionRepository{
                            INSERT INTO Predicciones (prediccion_equipo_1, prediccion_equipo_2, id_partido, id_alumno, tipo_puntaje) VALUES (
                                    ?,
                                    ?,
-                                   (select id from Partidos where (equipo_1 like ? and equipo_2 like ?) or (equipo_1 like ? and equipo_2 like ?)),
-                                   (select id from Usuarios where correo = ?),
+                                   (SELECT id FROM Partidos WHERE (equipo_1 like ? AND equipo_2 like ?) OR (equipo_1 like ? AND equipo_2 like ?)),
+                                   (SELECT id FROM Usuarios WHERE correo = ?),
                                    'No determinado')""";
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setInt(1, hacerPrediccion.getPrediccionEquipo1());
@@ -88,7 +88,7 @@ public class PrediccionRepository implements IPrediccionRepository{
                     "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
             String query = """
                            UPDATE Predicciones SET prediccion_equipo_1 = ?, prediccion_equipo_2 = ?
-                           WHERE id_alumno = (select id from Usuarios where correo = ?) AND id_partido = (select id from Partidos where (equipo_1 like ? and equipo_2 like ?) or (equipo_1 like ? and equipo_2 like ?))""";
+                           WHERE id_alumno = (SELECT id FROM Usuarios WHERE correo = ?) AND id_partido = (SELECT id FROM Partidos WHERE (equipo_1 like ? and equipo_2 like ?) OR (equipo_1 like ? and equipo_2 like ?))""";
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setInt(1, hacerPrediccion.getPrediccionEquipo1());
             pstmt.setInt(2, hacerPrediccion.getPrediccionEquipo2());
