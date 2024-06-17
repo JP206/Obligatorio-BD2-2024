@@ -12,7 +12,7 @@
       <span class="close" (click)="closeModal('grupoA')">&times;</span>
     </div>
     <div class="modal-body">
-      <div *ngFor="let partidoA of grupoA">
+      <div *ngFor="let partidoA of partidos | slice:0:5">
           <app-partido-fixture [admin]="admin" [partido]="partidoA" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
       </div> 
     </div>
@@ -25,7 +25,7 @@
       <span class="close" (click)="closeModal('grupoB')">&times;</span>
     </div>
     <div class="modal-body">
-      <div *ngFor="let partidoB of grupoB">
+      <div *ngFor="let partidoB of partidos | slice:6:11">
           <app-partido-fixture [admin]="admin" [partido]="partidoB" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
       </div> 
     </div>
@@ -38,7 +38,7 @@
       <span class="close" (click)="closeModal('grupoC')">&times;</span>
     </div>
     <div class="modal-body">
-      <div *ngFor="let partidoC of grupoC">
+      <div *ngFor="let partidoC of partidos | slice:12:17">
           <app-partido-fixture [admin]="admin" [partido]="partidoC" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
       </div> 
     </div>
@@ -51,7 +51,7 @@
       <span class="close" (click)="closeModal('grupoD')">&times;</span>
     </div>
     <div class="modal-body">
-      <div *ngFor="let partidoD of grupoD">
+      <div *ngFor="let partidoD of partidos | slice:18:23">
           <app-partido-fixture [admin]="admin" [partido]="partidoD" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
       </div> 
     </div>
@@ -63,45 +63,45 @@
     <div class="round">
         <h3>Cuartos</h3>
         <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="cuartos[0]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partidos[24]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
         <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="cuartos[1]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partidos[25]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div class="round">
         <h3>Semifinal</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="semifinal[0]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partidos[28]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div>
         <div class="round">
             <h1>Final</h1>
             <div class="match final">
-                <app-partido-fixture [admin]="admin" [partido]="final[0]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partidos[30]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
             </div>
         </div>
         <div class="round losers">
             <h4>3er y 4to puesto</h4>
             <div class="match">
-                <app-partido-fixture [admin]="admin" [partido]="tercerCuartoPuesto[0]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+                <app-partido-fixture [admin]="admin" [partido]="partidos[31]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
             </div>
         </div>
     </div>
     <div class="round">
         <h3>Semifinal</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="semifinal[1]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partidos[29]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
     <div class="round">
         <h3>Cuartos</h3>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="cuartos[2]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partidos[26]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
         <div class="match">
-            <app-partido-fixture [admin]="admin" [partido]="cuartos[3]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
+            <app-partido-fixture [admin]="admin" [partido]="partidos[27]" (elegirEquipo)="abrirSeleccion($event)"></app-partido-fixture>
         </div>
     </div>
 </div>

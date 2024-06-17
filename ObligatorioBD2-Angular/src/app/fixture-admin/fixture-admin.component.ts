@@ -18,6 +18,7 @@ export class FixtureAdminComponent implements OnInit {
   grupoB: Partido[] = [];
   grupoC: Partido[] = [];
   grupoD: Partido[] = [];
+  partidos: Partido[] = [];
   admin: boolean = true;
   equipos: Equipo[] = [];
   partidoSeleccionado: Partido | undefined;
@@ -39,6 +40,7 @@ export class FixtureAdminComponent implements OnInit {
     );
     this.partidoService.getPartidos().subscribe(
       (data: Partido[]) => {
+        console.log('Datos de partido: ', data)
         this.asignarPartidos(data);
       },
       (error) => {
@@ -71,7 +73,7 @@ export class FixtureAdminComponent implements OnInit {
 
   confirmar() {
     //this.partidoService.actualizarPartidos(this.partidos) TODO HACERLO ASI CON LOS NUEVOS
-    this.partidoService.actualizarPartidos(this.grupoA.concat(this.grupoB, this.grupoC, this.grupoD, this.semifinal, this.final, this.cuartos, this.tercerCuartoPuesto)).subscribe(
+    this.partidoService.actualizarPartidos(this.partidos).subscribe(
       (data: Boolean) => {
         console.log('se actualizaron: ', data)
       },
@@ -117,9 +119,11 @@ export class FixtureAdminComponent implements OnInit {
   }
 
   asignarPartidos(partidos: Partido[]) {
+    partidos.sort((a, b) => a.posicionFormulario - b.posicionFormulario);
     for ( const partido of partidos ) {
       partido.imagenEquipo1 = this.obtenerBanderaPorNombreEquipo(partido.equipo1);
       partido.imagenEquipo2 = this.obtenerBanderaPorNombreEquipo(partido.equipo2);
+      this.partidos.push(partido)
       switch (partido.etapa) {
         case "Fase de grupos":
           this.grupoA?.push(partido); // TODO REVISAR COMO CONOCER LA FASE DEL GRUPO QUE PERTENECE

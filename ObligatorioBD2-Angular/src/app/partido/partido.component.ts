@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Partido } from '../partido';
 import { PrediccionService } from '../prediccion.service';
 import { Prediccion } from '../prediccion';
+import { PrediccionCrear } from '../prediccion_crear';
 @Component({
   selector: 'app-partido',
   templateUrl: './partido.component.html',
@@ -13,8 +14,8 @@ export class PartidoComponent implements OnInit {
   
   prediccionEquipo1: number = 0;
   prediccionEquipo2: number = 0;
-  prediccion: Prediccion | undefined;
-  usuario: string = "juan";
+  prediccion: PrediccionCrear | undefined;
+  usuario: string = "juan@gmail.com";
 
   habilitado: boolean = true;
   errorMessage: string = "";
@@ -36,13 +37,11 @@ export class PartidoComponent implements OnInit {
   apostar(): void {
     if(this.partido && this.partido.equipo1 && this.partido?.equipo2) {
       this.prediccion = {
-        nombreUsuario: this.usuario,
+        correoUsuario: this.usuario,
         prediccionEquipo1: this.prediccionEquipo1,
         prediccionEquipo2:  this.prediccionEquipo2,
-        posicionFormulario: 0,
-        equipo1: undefined,
-        equipo2:  undefined,
-        puntaje: undefined
+        equipo1: this.partido.equipo1,
+        equipo2:  this.partido.equipo2
       }
       this.prediccionService.crearPrediccion(this.prediccion).subscribe(
         (data: Boolean) => {

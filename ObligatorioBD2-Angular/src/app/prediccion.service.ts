@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Prediccion } from './prediccion';
 import { Observable } from 'rxjs';
+import { PrediccionCrear } from './prediccion_crear';
 
 @Injectable({
   providedIn: 'root'
@@ -12,20 +13,28 @@ export class PrediccionService {
 
   constructor(private http: HttpClient) { }
 
-  getPredicciones(nombreUsuario: string): Observable<Prediccion[]> {
+  getPredicciones(correoUsuario: string): Observable<Prediccion[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
-    return this.http.get<Prediccion[]>(this.apiUrl+'/'+nombreUsuario, { headers: headers });
+    return this.http.get<Prediccion[]>(this.apiUrl+'/'+correoUsuario, { headers: headers });
   }
 
-  crearPrediccion(prediccion: Prediccion): Observable<Boolean> {
+  crearPrediccion(prediccion: PrediccionCrear): Observable<Boolean> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
     return this.http.post<Boolean>(this.apiUrl+'/crear', prediccion, { headers: headers });
+  }
+
+  actualizarPrediccion(prediccion: PrediccionCrear): Observable<Boolean> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    
+    return this.http.post<Boolean>(this.apiUrl+'/actualizar', prediccion, { headers: headers });
   }
 
 }

@@ -18,6 +18,8 @@ export class FixtureComponent implements OnInit {
   grupoB: Partido[] = [];
   grupoC: Partido[] = [];
   grupoD: Partido[] = [];
+
+  partidos: Partido[] = [];
   equipos: Equipo[] = [];
   errorMessage: string = '';
 
@@ -59,10 +61,12 @@ export class FixtureComponent implements OnInit {
   }
 
   asignarPartidos(partidos: Partido[]) {
+    this.partidos.sort((a, b) => a.posicionFormulario - b.posicionFormulario);
     for ( const partido of partidos ) {
       console.log(partido)
       partido.imagenEquipo1 = this.obtenerBanderaPorNombreEquipo(partido.equipo1);
       partido.imagenEquipo2 = this.obtenerBanderaPorNombreEquipo(partido.equipo2);
+      this.partidos.push(partido)
       switch (partido.etapa) {
         case "Fase de grupos":
           this.grupoA?.push(partido); // TODO REVISAR COMO CONOCER LA FASE DEL GRUPO QUE PERTENECE

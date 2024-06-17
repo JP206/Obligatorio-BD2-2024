@@ -20,3 +20,11 @@
 .contenedorPartido {
     border: 1px solid #ccc; /* Añade un borde sólido de 1px con color gris claro */
 }
+.equipo-imagen {
+  max-height: 100px; /* Ajusta el tamaño máximo de las imágenes según sea necesario */
+}
+
+.equipo-nombre {
+  margin-top: 10px;
+  font-size: 1.2em;
+}

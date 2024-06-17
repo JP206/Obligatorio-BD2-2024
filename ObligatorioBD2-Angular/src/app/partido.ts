@@ -6,6 +6,7 @@ export interface Partido {
     golesEquipo2: number;
     imagenEquipo1: string | undefined;
     imagenEquipo2: string | undefined;
+    posicionFormulario: number;
     equipo1: string;
     equipo2: string;
     fecha: Date;
