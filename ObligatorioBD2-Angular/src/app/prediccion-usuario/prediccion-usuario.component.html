@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<h1>Predicciones:</h1>
+<div class="container my-4">
+    <div class="row" *ngFor="let prediccion of predicciones">
+      <div class="col contenedorPartido">
+          <app-prediccion-item [prediccion]="prediccion"></app-prediccion-item>
+      </div>
+    </div>
+  </div>
+  

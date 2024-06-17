@@ -18,6 +18,8 @@ import { FixtureAdminComponent } from './fixture-admin/fixture-admin.component';
 import { EquipoComponent } from './equipo/equipo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EquipoService } from './equipo.service';
+import { PrediccionUsuarioComponent } from './prediccion-usuario/prediccion-usuario.component';
+import { PrediccionItemComponent } from './prediccion-item/prediccion-item.component';
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
@@ -26,6 +28,7 @@ const appRoutes: Routes = [
   {path: 'apuesta', component: ApuestasComponent},
   {path: 'leaderboard', component: LeaderboardComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'predicciones', component: PrediccionUsuarioComponent},
   {path: '', component: LoginComponent}
 ];
 
@@ -42,7 +45,9 @@ const appRoutes: Routes = [
     AppComponent, LoginComponent, NavbarComponent, HomeComponent, ApuestasComponent, PrediccionComponent, PartidoComponent, FixtureComponent, PartidoFixtureComponent,
     LeaderboardComponent,
     FixtureAdminComponent,
-    EquipoComponent
+    EquipoComponent,
+    PrediccionUsuarioComponent,
+    PrediccionItemComponent
   ],
   providers: [
     EquipoService, // Añade aquí EquipoService

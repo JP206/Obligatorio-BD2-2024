@@ -70,7 +70,16 @@ export class FixtureAdminComponent implements OnInit {
   }
 
   confirmar() {
-    //this.partidoService.actualizarPartidos(this.partidos)
+    //this.partidoService.actualizarPartidos(this.partidos) TODO HACERLO ASI CON LOS NUEVOS
+    this.partidoService.actualizarPartidos(this.grupoA.concat(this.grupoB, this.grupoC, this.grupoD, this.semifinal, this.final, this.cuartos, this.tercerCuartoPuesto)).subscribe(
+      (data: Boolean) => {
+        console.log('se actualizaron: ', data)
+      },
+      (error) => {
+        console.error('Error cambiando partidos:', error);
+        this.errorMessage = 'Hubo un error al actualizar los partidos.';
+      }
+    );
   }
 
   abrirSeleccion(event: {partido: Partido, equipo: number}) {

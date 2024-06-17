@@ -25,7 +25,7 @@ export class PartidoService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.put<Boolean>(this.apiUrl+'/editar', partido, { headers: headers });
+    return this.http.put<Boolean>(this.apiUrl+'/editar', [partido], { headers: headers });
   }
 
   actualizarPartidos(partidos: Partido[]): Observable<Boolean> {
