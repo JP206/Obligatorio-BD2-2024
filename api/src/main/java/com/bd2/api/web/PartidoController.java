@@ -35,8 +35,8 @@ class PartidoController {
     }
     
     @PutMapping(path = "/editar")
-    public boolean editarPartido(@RequestBody PartidoDTO partido) { //@RequestBody arma un PartidoDTO con los datos del body
-        return partidoRepository.editarPartido(partido);
+    public boolean editarPartido(@RequestBody PartidoDTO[] partidos) { //@RequestBody arma un PartidoDTO con los datos del body
+        return partidoRepository.editarPartido(partidos);
     }
     
     @PutMapping(path = "/eliminar/{id}")

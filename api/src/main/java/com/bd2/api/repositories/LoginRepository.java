@@ -1,5 +1,6 @@
 package com.bd2.api.repositories;
 
+import com.bd2.api.dto.LoginResponseDTO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -12,7 +13,8 @@ public class LoginRepository implements ILoginRepository{
 
     @Override
     @Async
-    public boolean login(String correo, String contrasenia) {
+    public LoginResponseDTO login(String correo, String contrasenia) {
+        LoginResponseDTO loginResponse = new LoginResponseDTO();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
@@ -20,12 +22,26 @@ public class LoginRepository implements ILoginRepository{
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM Usuarios WHERE correo = '" + correo + "' AND contrasenia = '" + contrasenia + "' AND NOT borrado");
             
-            boolean resultado = rs.next();
+            boolean loginExitoso = rs.next();
+            if (loginExitoso) {
+                loginResponse.setLoginExitoso(loginExitoso);
+                int id = rs.getInt(1);
+                rs = stmt.executeQuery("SELECT * FROM Administradores WHERE id = " + id);
+                if (rs.next()) {
+                    loginResponse.setEsAdmin(true);
+                }
+                else {
+                    loginResponse.setEsAdmin(false);
+                }
+            }
+            else {
+                loginResponse.setEsAdmin(false);
+                loginResponse.setLoginExitoso(false);
+            }
             con.close();
-            return resultado;
         } catch (Exception e) {
             System.out.println(e);
         }
-        return false;
+        return loginResponse;
     }
 }

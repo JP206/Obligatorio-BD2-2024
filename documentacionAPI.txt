@@ -1,0 +1,153 @@
+### LOGIN ###
+GET: localhost:8080/login
+	en el body:
+	{
+    		"correo": "juan@gmail.com",
+    		"contrasenia": "juan123"
+	}
+	devuelve un JSON:
+	{
+    		"loginExitoso": true,
+    		"esAdmin": false
+	}
+
+### PAISES ###
+formato de un pais (JSON):
+{
+        	"nombre": "Argentina",
+	"bandera": "https://i.pinimg.com/736x/8c/4b/e0/8c4be0d18947b001c8516a5da134d121.jpg"
+}
+GET: localhost:8080/pais/paises
+	devuelve un array de paises
+
+GET: localhost:8080/pais/{nombrePais}
+	devuelve un único país. Para buscar el país no es necesario escribir el nombre entero, la forma de buscar es que contenga nombrePais en el nombre
+
+### PARTIDOS ###
+formato de un partido (JSON):
+{
+        "borrado": false,
+        "id": 1,
+        "equipo1": "Argentina",
+        "equipo2": "Canada",
+        "golesEquipo1": -1,
+        "golesEquipo2": -1,
+        "etapa": "Fase de grupos",
+        "fecha": "2024-06-19",
+        "hora": "21:00:00",
+        "estadio": "Mercedes-Benz Stadium",
+        "posicionFormulario": -1,
+        "partidoBorrado": false
+}
+
+GET: localhost:8080/partido/partidos
+	devuelve un array de partidos
+
+GET: localhost:8080/partido/{id}
+	devuelve el partido con ese id
+
+PUT: localhost:8080/partido/editar
+	en el body debe haber un array de partidos:
+[
+    	{
+        		"borrado": false,
+        		"id": 1,
+		"equipo1": "Argentina",
+		"equipo2": "Canada",
+		"golesEquipo1": -1,
+		"golesEquipo2": -1,
+        		"etapa": "Fase de grupos A",
+        		"fecha": "2024-06-20",
+        		"hora": "21:00:00",
+        		"estadio": "Mercedes-Benz Stadium",
+        		"posicionFormulario": -1,
+        		"partidoBorrado": false
+    	},
+    	{
+        		"borrado": false,
+        		"id": 2,
+        		"equipo1": "Peru",
+        		"equipo2": "Chile",
+        		"golesEquipo1": -1,
+        		"golesEquipo2": -1,
+        		"etapa": "Fase de grupos A",
+        		"fecha": "2024-06-21",
+        		"hora": "21:00:00",
+        		"estadio": "AT&T Stadium",
+        		"posicionFormulario": -1,
+		"partidoBorrado": false
+    	}
+]
+	devuelve true si pudo hacer el update 
+
+PUT: localhost:8080/partido/eliminar/{id}
+	elimina el partido con ese id. Devuelve true si lo pudo eliminar, false sino
+
+POST: localhost:8080/partido/crear
+	en el body debe haber un partido con el formato, devuelve true si lo pudo crear, false sino
+
+### USUARIOS ###
+formato de un usuario (JSON):
+{
+	"borrado": false,
+	"id": 1,
+	"nombre": "juancho",
+	"apellido": "perez",
+	"correo": "juan@gmail.com",
+	"contrasenia": null,
+	"usuarioBorrado": false
+}
+
+GET: localhost:8080/usuario/usuarios
+	devuelve un array de usuarios. No devuelve la contraseña y tampoco se indica si es un administrador o un alumno
+
+GET: localhost:8080/usuario/{id}
+	devuelve el usuario con ese id
+
+PUT: localhost:8080/usuario/editar
+	en el body debe haber un usuario. Devuelve true si se pudo editar, false sino
+
+PUT: localhost:8080/usuario/eliminar/{id}
+	devuelve true si puede eliminar el usuario con ese id, false sino
+
+POST: localhost:8080/usuario/crearadmin
+	en el body debe haber un usuario. Devuelve true si lo crea, false sino
+
+POST: localhost:8080/usuario/crearalumno
+	en el body debe haber un usuario. Devuelve true si lo crea, false sino
+
+### PREDICCIONES ###
+
+GET: localhost:8080/prediccion/{correoUsuario}
+	dado el correo del usuario, devuelve un arreglo de las predicciones que hizo con el siguiente formato:
+	{
+        		"prediccionEquipo1": 0,
+       		"prediccionEquipo2": 1,
+        		"equipo1": "Argentina",
+        		"equipo2": "Canada",
+        		"fecha": "2024-06-20",
+        		"hora": "21:00:00",
+        		"puntaje": 0
+    	}
+
+POST: localhost:8080/prediccion/crear
+	en el body, enviar lo siguiente:
+	{
+    		"correoUsuario": "juan@gmail.com",
+    		"prediccionEquipo1": 1,
+    		"prediccionEquipo2": 2,
+    		"equipo1": "colombia",
+    		"equipo2": "brasil" 
+	}
+	devuelve true si pudo insertar, false sino
+
+POST: localhost:8080/prediccion/actualizar
+	en el body:
+	{
+   		"correoUsuario": "juan@gmail.com",
+    		"prediccionEquipo1": 6,
+    		"prediccionEquipo2": 0,
+    		"equipo1": "colombia",
+    		"equipo2": "brasil" 
+	}
+	devuelve true si pudo actualizar esa predicción, false sino
