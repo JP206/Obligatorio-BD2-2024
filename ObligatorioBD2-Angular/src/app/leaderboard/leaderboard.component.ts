@@ -16,6 +16,10 @@ export class LeaderboardComponent implements OnInit {
   ngOnInit(): void {
     this.alumnoService.getLeaderboard().subscribe(
       (data: Alumno[]) => {
+        for (const alumno of data) {
+          alumno.apellido = alumno.apellido.charAt(0).toUpperCase() + alumno.apellido.slice(1);
+          alumno.nombre = alumno.nombre.charAt(0).toUpperCase() + alumno.nombre.slice(1);
+        }
         this.alumnos = data;
       },
       (error) => {

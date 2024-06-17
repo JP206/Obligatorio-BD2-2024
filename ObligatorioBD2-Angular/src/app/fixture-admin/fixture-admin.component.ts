@@ -123,24 +123,14 @@ export class FixtureAdminComponent implements OnInit {
     for ( const partido of partidos ) {
       partido.imagenEquipo1 = this.obtenerBanderaPorNombreEquipo(partido.equipo1);
       partido.imagenEquipo2 = this.obtenerBanderaPorNombreEquipo(partido.equipo2);
-      this.partidos.push(partido)
-      switch (partido.etapa) {
-        case "Fase de grupos":
-          this.grupoA?.push(partido); // TODO REVISAR COMO CONOCER LA FASE DEL GRUPO QUE PERTENECE
-          break;
-        case "Cuartos de final":
-          this.cuartos?.push(partido);
-          break;
-        case "Semifinales":
-          this.semifinal?.push(partido);
-          break;
-        case "Final":
-          this.final?.push(partido);
-          break;
-        case "3° puesto":
-          this.tercerCuartoPuesto?.push(partido);
-          break;
+      if (partido.golesEquipo1 == -1) {
+        partido.golesEquipo1 = 0;
       }
+      if (partido.golesEquipo2 == -1) {
+        partido.golesEquipo2 = 0;
+      }
+      this.partidos.push(partido)
+      
     }
   }
 
