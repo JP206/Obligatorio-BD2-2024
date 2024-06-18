@@ -1,6 +1,7 @@
 package com.bd2.api.web;
 
 import com.bd2.api.dto.PartidoDTO;
+import com.bd2.api.repositories.IActualizarPuntajesRepository;
 import com.bd2.api.repositories.IPartidoRepository;
 import java.util.LinkedList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 class PartidoController {
     
     private final IPartidoRepository partidoRepository;
+    private final IActualizarPuntajesRepository actualizarPuntajesRepository;
     
     @Autowired //@Autowired sirve para inyectar automaticamente
-    public PartidoController(final IPartidoRepository partidoRepository) {
+    public PartidoController(final IPartidoRepository partidoRepository, final IActualizarPuntajesRepository actualizarPuntajesRepository) {
         this.partidoRepository = partidoRepository;
+        this.actualizarPuntajesRepository = actualizarPuntajesRepository;
     }
     
     @GetMapping(path = "/partidos")
@@ -36,7 +39,7 @@ class PartidoController {
     
     @PutMapping(path = "/editar")
     public boolean editarPartido(@RequestBody PartidoDTO[] partidos) { //@RequestBody arma un PartidoDTO con los datos del body
-        return partidoRepository.editarPartido(partidos);
+        return partidoRepository.editarPartido(partidos) && actualizarPuntajesRepository.actualizarPuntajes(partidos);
     }
     
     @PutMapping(path = "/eliminar/{id}")
