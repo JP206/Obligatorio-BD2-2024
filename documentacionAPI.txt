@@ -167,3 +167,9 @@ GET: localhost:8080/alumno/leaderboard
         		"puntaje": 4
     		}
 	]
+
+GET: localhost:8080/alumno/top15
+	igual al anterior pero devuelve solo 15 alumnos
+
+GET: localhost:8080/alumno/puntaje?correo=ejemplo@ejemplo.com
+	devuelve el puntaje del alumno con ese correo

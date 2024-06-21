@@ -42,5 +42,58 @@ public class LeaderboardRepository implements ILeaderboardRepository {
         return listaResultado;
     }
     
+    @Override
+    @Async
+    public LinkedList<LeaderboardDTO> getTop15() {
+        LinkedList<LeaderboardDTO> listaResultado = new LinkedList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("""
+                                             SELECT nombre, apellido, SUM(puntaje) AS puntaje
+                                             FROM Predicciones
+                                             INNER JOIN Usuarios on Predicciones.id_alumno = Usuarios.id
+                                             INNER JOIN Puntajes on Predicciones.tipo_puntaje = Puntajes.tipo
+                                             GROUP BY nombre, apellido
+                                             ORDER BY puntaje DESC
+                                             LIMIT 15""");
+            while (rs.next()) {
+                LeaderboardDTO leaderboard = new LeaderboardDTO();
+                leaderboard.setNombre(rs.getString(1));
+                leaderboard.setApellido(rs.getString(2));
+                leaderboard.setPuntaje(rs.getInt(3));
+                listaResultado.add(leaderboard);
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return listaResultado;
+    }
     
+    @Override
+    @Async
+    public int getPuntaje(String correo) {
+        int resultado = 0;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/obligatorio", "user", "password");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("""
+                                             SELECT SUM(puntaje) AS puntaje
+                                             FROM Predicciones
+                                             INNER JOIN Usuarios on Predicciones.id_alumno = Usuarios.id
+                                             INNER JOIN Puntajes on Predicciones.tipo_puntaje = Puntajes.tipo
+                                             WHERE Usuarios.correo = '""" + correo + "'");
+            rs.next();
+            resultado = rs.getInt(1);
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
+    }
 }
