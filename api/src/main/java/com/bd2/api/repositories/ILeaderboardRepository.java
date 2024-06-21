@@ -6,4 +6,6 @@ import java.util.LinkedList;
 public interface ILeaderboardRepository {
     
     public LinkedList<LeaderboardDTO> getLeaderboard();
+    public LinkedList<LeaderboardDTO> getTop15();
+    public int getPuntaje(String correo);
 }

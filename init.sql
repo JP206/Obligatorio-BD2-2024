@@ -119,7 +119,7 @@ INSERT INTO Etapas (etapa) VALUES
     ('Fase de grupos D'),
     ('Cuartos de final'),
     ('Semifinales'),
-    ('3° puesto'),
+    ('3er puesto'),
     ('Final');
 
 INSERT INTO Paises (nombre, bandera) VALUES
@@ -169,7 +169,7 @@ INSERT INTO Partidos (equipo_1, equipo_2, goles_equipo_1, goles_equipo_2, etapa,
     ('Peru', 'Canada', -1, -1, 'Fase de grupos A', '2024/06/25', '19:00:00', 'Children’s Mercy Park', false, 2),
     ('Chile', 'Argentina', -1, -1, 'Fase de grupos A', '2024/06/25', '22:00:00', 'MetLife Stadium', false, 3),
     ('Ecuador', 'Jamaica', -1 ,-1, 'Fase de grupos B', '2024/06/26', '19:00:00', 'Allegiant Stadium', false, 8),
-    ('Venezuela', 'México', -1, -1, 'Fase de grupos B', '2024/06/26', '22:00:00', 'SoFI Stadium', false, 9),
+    ('Venezuela', 'Mexico', -1, -1, 'Fase de grupos B', '2024/06/26', '22:00:00', 'SoFI Stadium', false, 9),
     ('Panama', 'Estados Unidos', -1, -1, 'Fase de grupos C', '2024/06/27', '19:00:00', 'Mercedes-Benz Stadium', false, 14),
     ('Uruguay', 'Bolivia', -1, -1, 'Fase de grupos C', '2024/06/27', '22:00:00', 'MetLife Stadium', false, 15),
     ('Colombia', 'Costa Rica', -1, -1, 'Fase de grupos D', '2024/06/28', '19:00:00', 'State Farm Stadium', false, 20),
@@ -189,7 +189,7 @@ INSERT INTO Partidos (equipo_1, equipo_2, goles_equipo_1, goles_equipo_2, etapa,
     ('Vacio', 'Vacio', -1, -1, 'Semifinales', '2024/07/09', '20:00:00', 'MetLife Stadium', false, 28),
     ('Vacio', 'Vacio', -1, -1, 'Semifinales', '2024/07/10', '20:00:00', 'Bank of America Stadium', false, 29),
     ('Vacio', 'Vacio', -1, -1, 'Final', '2024/07/14', '20:00:00', 'Hard Rock Stadium', false, 30),
-    ('Vacio', 'Vacio', -1, -1, '3° puesto', '2024/07/13', '20:00:00', 'Bank of America Stadium', false, 31);
+    ('Vacio', 'Vacio', -1, -1, '3er puesto', '2024/07/13', '20:00:00', 'Bank of America Stadium', false, 31);
 
 INSERT INTO Puntajes (tipo, puntaje) VALUES 
     ('Exacto', 4),
