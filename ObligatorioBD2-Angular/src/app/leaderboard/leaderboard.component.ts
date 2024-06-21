@@ -14,7 +14,7 @@ export class LeaderboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.alumnoService.getLeaderboard().subscribe(
+    this.alumnoService.getTop15().subscribe(
       (data: Alumno[]) => {
         for (const alumno of data) {
           alumno.apellido = alumno.apellido.charAt(0).toUpperCase() + alumno.apellido.slice(1);
