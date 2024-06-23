@@ -1,11 +1,6 @@
 # Obligatorio Bases de Datos 2 - 2024
 ### Juan Cosentino, Santiago Ferraro, Bianca Luzzatto
 
-# PencaUCU Copa América 2024
-
-![Copa america](logo-copa-america.jpg)
-
-
 # Para correr la aplicación
 ### API
 - Es necesario tener instalado JDK 8 o superior
@@ -14,6 +9,14 @@
 - Para crear una variable de entorno como dice la instalación, se puede correr la siguiente línea en la consola: set PATH="c:\ruta donde se descomprimio\apache-maven-3.x.y\bin";%PATH%
 - Para más información del paso anterior, verificar la segunda respuesta en: https://stackoverflow.com/questions/45119595/how-to-add-maven-to-the-path-variable
 - En la consola, dirigirse al directorio "api". Una vez dentro, para iniciar la API se debe ejecutar: mvn spring-boot:run
+- Debería verse así el final de la consola:
+![consola api](comando-api.png)
+- Marcado en rojo indica el puerto en el que corre la API
+
+
+# PencaUCU Copa América 2024
+
+![Copa america](logo-copa-america.jpg)
 
 Cada día falta menos para poder volver a disfrutar de nuestros jugadores y volver a 
 vestir la Celeste del Alma. Ya se puede comenzar a palpitar la Copa América 2024. 
