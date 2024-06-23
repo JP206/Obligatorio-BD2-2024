@@ -6,6 +6,15 @@
 ![Copa america](logo-copa-america.jpg)
 
 
+# Para correr la aplicación
+### API
+- Es necesario tener instalado JDK 8 o superior
+- Descargar Maven de la siguiente URL: https://maven.apache.org/download.cgi
+- Seguir los pasos de instalación de Maven: https://maven.apache.org/install.html
+- Para crear una variable de entorno como dice la instalación, se puede correr la siguiente línea en la consola: set PATH="c:\ruta donde se descomprimio\apache-maven-3.x.y\bin";%PATH%
+- Para más información del paso anterior, verificar la segunda respuesta en: https://stackoverflow.com/questions/45119595/how-to-add-maven-to-the-path-variable
+- En la consola, dirigirse al directorio "api". Una vez dentro, para iniciar la API se debe ejecutar: mvn spring-boot:run
+
 Cada día falta menos para poder volver a disfrutar de nuestros jugadores y volver a 
 vestir la Celeste del Alma. Ya se puede comenzar a palpitar la Copa América 2024. 
 Mientras Bielsa arma el listado de jugadores que va a reservar para representarnos de 
