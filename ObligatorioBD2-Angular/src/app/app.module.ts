@@ -22,6 +22,7 @@ import { PrediccionUsuarioComponent } from './prediccion-usuario/prediccion-usua
 import { PrediccionItemComponent } from './prediccion-item/prediccion-item.component';
 import { SignupComponent } from './signup/signup.component';
 const appRoutes: Routes = [
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'fixture', component: FixtureComponent},
