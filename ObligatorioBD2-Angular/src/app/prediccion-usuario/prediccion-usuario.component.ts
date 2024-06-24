@@ -3,6 +3,7 @@ import { Prediccion } from '../prediccion';
 import { PrediccionService } from '../prediccion.service';
 import { Equipo } from '../equipo';
 import { EquipoService } from '../equipo.service';
+import { AlumnoService } from '../alumno.service';
 
 @Component({
   selector: 'app-prediccion-usuario',
@@ -15,7 +16,7 @@ export class PrediccionUsuarioComponent implements OnInit {
   errorMessage: string = "";
   equipos: Equipo[] = [];
   puntajeTotal: number = 0;
-  constructor(private prediccionService: PrediccionService, private equipoService: EquipoService) { }
+  constructor(private prediccionService: PrediccionService, private equipoService: EquipoService, private AlumnoService: AlumnoService) { }
 
   ngOnInit(): void {
     this.equipoService.getEquipos().subscribe(
@@ -25,6 +26,15 @@ export class PrediccionUsuarioComponent implements OnInit {
       (error) => {
         console.error('Error fetching equipos:', error);
         this.errorMessage = 'Hubo un error al cargar los equipos.';
+      }
+    );
+    this.AlumnoService.getPuntaje(this.usuario).subscribe(
+      (data: number) => {
+        this.puntajeTotal = data;
+      },
+      (error) => {
+        console.error('Error fetching puntaje:', error);
+        this.errorMessage = 'Hubo un error al cargar el puntaje.';
       }
     );
     this.prediccionService.getPredicciones(this.usuario).subscribe( 

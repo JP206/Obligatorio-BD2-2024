@@ -19,5 +19,20 @@ export class AlumnoService {
 
     return this.http.get<Alumno[]>(this.apiUrl+'/leaderboard', { headers: headers });
   }
+  
+  getTop15(): Observable<Alumno[]> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
+    return this.http.get<Alumno[]>(this.apiUrl+'/top15', { headers: headers });
+  }
+
+  getPuntaje(correoUsuario: string): Observable<number> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.get<number>(this.apiUrl+'/puntaje?correo='+correoUsuario, { headers: headers });
+  }
 }

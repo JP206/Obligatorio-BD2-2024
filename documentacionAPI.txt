@@ -1,5 +1,5 @@
 ### LOGIN ###
-GET: localhost:8080/login
+POST: localhost:8080/login
 	en el body:
 	{
     		"correo": "juan@gmail.com",
