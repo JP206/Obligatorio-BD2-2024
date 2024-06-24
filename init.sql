@@ -3,6 +3,11 @@ USE obligatorio;
 -- GRANT ALL PRIVILEGES ON obligatorio.* TO 'user'@'%';
 -- FLUSH PRIVILEGES;
 
+CREATE TABLE Paises (
+    nombre VARCHAR(30) PRIMARY KEY ,
+    bandera VARCHAR(100)
+);
+
 CREATE TABLE Usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(50),
@@ -41,11 +46,6 @@ CREATE TABLE Cursa (
 
 CREATE TABLE Etapas (
     etapa VARCHAR(30) PRIMARY KEY
-);
-
-CREATE TABLE Paises (
-    nombre VARCHAR(30) PRIMARY KEY ,
-    bandera VARCHAR(100)
 );
 
 CREATE TABLE Estadios (
