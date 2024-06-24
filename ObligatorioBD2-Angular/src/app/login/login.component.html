@@ -1,20 +1,37 @@
-<div class="login">
-    <form class="custom-form" method="post">
-      <h1>Login</h1>
-      <input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Email"
-        required="required"
-      />
-      <input
-        type="password"
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-      />
-      <button type="submit" (click)="login()">Log in</button>
-    </form>
+<section class="vh-100 d-flex align-items-center justify-content-center overflow-hidden" style="background-image: url('https://e1.pxfuel.com/desktop-wallpaper/724/402/desktop-wallpaper-grass-pasture.jpg'); background-size: cover; background-position: center;">
+  <div class="container py-5">
+      <div class="card" style="border-radius: 1rem; max-height: 100%;">
+          <div class="row g-0">
+              <div class="col-md-6 col-lg-5 align-items-center d-md-block d-none">
+                  <img src="https://www.enjuegodeportes.com/wp-content/uploads/2023/07/COPA-AMERICA.png.webp" class="img-fluid align-items-center" style="border-radius: 1rem 0 0 1rem; height: 100%;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div class="card-body p-4 p-lg-5">
+
+                      <form>
+                          <h1 class="fw-bold mb-3 pb-1" style="letter-spacing: 1px;">Bienvenido a la PencaUCU</h1>
+                          <h5 class="fw-normal mb-3 pb-2" style="letter-spacing: 1px;">Ingrese a su cuenta</h5>
+
+                          <div data-mdb-input-init class="form-outline mb-3">
+                              <input type="email" id="correo" name="correo" [(ngModel)]="correo" class="form-control form-control-lg" />
+                              <label class="form-label" for="correo">Correo Electrónico</label>
+                          </div>
+
+                          <div data-mdb-input-init class="form-outline mb-3">
+                              <input type="password" id="contrasenia" name="contrasenia" [(ngModel)]="contrasenia" class="form-control form-control-lg" />
+                              <label class="form-label" for="contrasenia">Contraseña</label>
+                          </div>
+
+                          <div class="pt-1 mb-3">
+                              <button class="btn btn-dark btn-lg" type="button" (click)="login()">Iniciar Sesión</button>
+                          </div>
+
+                          <p class="mb-1 pb-2" style="color: #202020;">¿No tienes una cuenta? <a href="/signup" style="color: #0015ff;">Registrate</a></p>
+                      </form>
+
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
+</section>

@@ -101,6 +101,25 @@ INSERT INTO Usuarios (nombre, apellido, correo, contrasenia, borrado) VALUES
 
 INSERT INTO Administradores (id) VALUES (3);
 
+INSERT INTO Paises (nombre, bandera) VALUES
+    ('Argentina', 'https://i.pinimg.com/736x/8c/4b/e0/8c4be0d18947b001c8516a5da134d121.jpg'),
+    ('Peru', 'https://i.pinimg.com/736x/fe/5b/01/fe5b014b43af7aa1d291ff770a17fe2a.jpg'),
+    ('Chile', 'https://i.pinimg.com/736x/d9/23/7f/d9237f96cc87a4a042ba0d8f4ffa9658.jpg'),
+    ('Mexico', 'https://i.pinimg.com/736x/0e/d5/f1/0ed5f1fbe077ada1740e475f5b0ca0fe.jpg'),
+    ('Ecuador', 'https://i.pinimg.com/736x/c5/56/9a/c5569a45809ea01c455e17cf6c5ef4a2.jpg'),
+    ('Venezuela', 'https://i.pinimg.com/736x/10/49/0f/10490f2bdec79d28c184aa4bd4eb7209.jpg'),
+    ('Jamaica', 'https://i.pinimg.com/736x/c9/d6/59/c9d6590e9ae8d5faaa4d0f25f0855822.jpg'),
+    ('Estados Unidos', 'https://i.pinimg.com/736x/10/99/78/109978a82d0efa2aca34a6fb252969f9.jpg'),
+    ('Uruguay', 'https://i.pinimg.com/736x/cd/dd/f7/cdddf7fe9be0f5b3cfb36d3fca167daf.jpg'),
+    ('Panama', 'https://i.pinimg.com/736x/a6/76/69/a6766997d34137955969a7618df307d3.jpg'),
+    ('Bolivia', 'https://i.pinimg.com/736x/70/f4/d9/70f4d9dd3e771ee36f103a9afea6c741.jpg'),
+    ('Brasil', 'https://i.pinimg.com/736x/91/07/cd/9107cdbb5c7bf198ac74550ab8bbfe46.jpg'),
+    ('Colombia', 'https://i.pinimg.com/736x/94/89/00/94890093ffe02179022cb0f6d423842b.jpg'),
+    ('Paraguay', 'https://i.pinimg.com/736x/54/eb/ed/54ebed9b415e2d7c3d200d9157ebe6ac.jpg'),
+    ('Canada', 'https://i.pinimg.com/736x/62/9f/08/629f08cc1d11182e1159a7cf874aca94.jpg'),
+    ('Costa Rica', 'https://i.pinimg.com/736x/4a/66/aa/4a66aa187af2070bdc8871035cdd60f7.jpg'),
+    ('Vacio', 'https://i.pinimg.com/736x/4a/74/85/4a74855403c94fe8bfe62af13b07ab55.jpg');
+
 INSERT INTO Alumnos (id, campeon, subcampeon) VALUES 
     (1, 'Uruguay', 'Brasil'), 
     (2, 'Argentina', 'Mexico');
@@ -123,25 +142,6 @@ INSERT INTO Etapas (etapa) VALUES
     ('Semifinales'),
     ('3er puesto'),
     ('Final');
-
-INSERT INTO Paises (nombre, bandera) VALUES
-    ('Argentina', 'https://i.pinimg.com/736x/8c/4b/e0/8c4be0d18947b001c8516a5da134d121.jpg'),
-    ('Peru', 'https://i.pinimg.com/736x/fe/5b/01/fe5b014b43af7aa1d291ff770a17fe2a.jpg'),
-    ('Chile', 'https://i.pinimg.com/736x/d9/23/7f/d9237f96cc87a4a042ba0d8f4ffa9658.jpg'),
-    ('Mexico', 'https://i.pinimg.com/736x/0e/d5/f1/0ed5f1fbe077ada1740e475f5b0ca0fe.jpg'),
-    ('Ecuador', 'https://i.pinimg.com/736x/c5/56/9a/c5569a45809ea01c455e17cf6c5ef4a2.jpg'),
-    ('Venezuela', 'https://i.pinimg.com/736x/10/49/0f/10490f2bdec79d28c184aa4bd4eb7209.jpg'),
-    ('Jamaica', 'https://i.pinimg.com/736x/c9/d6/59/c9d6590e9ae8d5faaa4d0f25f0855822.jpg'),
-    ('Estados Unidos', 'https://i.pinimg.com/736x/10/99/78/109978a82d0efa2aca34a6fb252969f9.jpg'),
-    ('Uruguay', 'https://i.pinimg.com/736x/cd/dd/f7/cdddf7fe9be0f5b3cfb36d3fca167daf.jpg'),
-    ('Panama', 'https://i.pinimg.com/736x/a6/76/69/a6766997d34137955969a7618df307d3.jpg'),
-    ('Bolivia', 'https://i.pinimg.com/736x/70/f4/d9/70f4d9dd3e771ee36f103a9afea6c741.jpg'),
-    ('Brasil', 'https://i.pinimg.com/736x/91/07/cd/9107cdbb5c7bf198ac74550ab8bbfe46.jpg'),
-    ('Colombia', 'https://i.pinimg.com/736x/94/89/00/94890093ffe02179022cb0f6d423842b.jpg'),
-    ('Paraguay', 'https://i.pinimg.com/736x/54/eb/ed/54ebed9b415e2d7c3d200d9157ebe6ac.jpg'),
-    ('Canada', 'https://i.pinimg.com/736x/62/9f/08/629f08cc1d11182e1159a7cf874aca94.jpg'),
-    ('Costa Rica', 'https://i.pinimg.com/736x/4a/66/aa/4a66aa187af2070bdc8871035cdd60f7.jpg'),
-    ('Vacio', 'https://i.pinimg.com/736x/4a/74/85/4a74855403c94fe8bfe62af13b07ab55.jpg');
 
 INSERT INTO Estadios (nombre, ciudad, imagen, capacidad) VALUES
     ('Mercedes-Benz Stadium', 'Atlanta', 'https://i.pinimg.com/736x/1c/17/c3/1c17c3f190c33afe2fb03241a48b5103.jpg', 71000),
