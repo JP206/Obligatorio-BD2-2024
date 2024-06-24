@@ -66,9 +66,7 @@ public class PrediccionRepository implements IPrediccionRepository{
             pstmt.setInt(2, hacerPrediccion.getPrediccionEquipo2());
             pstmt.setString(3, hacerPrediccion.getEquipo1() + '%');
             pstmt.setString(4, hacerPrediccion.getEquipo2() + '%');
-            pstmt.setString(5, hacerPrediccion.getEquipo2() + '%');
-            pstmt.setString(6, hacerPrediccion.getEquipo1() + '%');
-            pstmt.setString(7, hacerPrediccion.getCorreoUsuario());
+            pstmt.setString(5, hacerPrediccion.getCorreoUsuario());
             
             int rs = pstmt.executeUpdate();
             con.close();
