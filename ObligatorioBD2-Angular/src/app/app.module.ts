@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EquipoService } from './equipo.service';
 import { PrediccionUsuarioComponent } from './prediccion-usuario/prediccion-usuario.component';
 import { PrediccionItemComponent } from './prediccion-item/prediccion-item.component';
+import { SignupComponent } from './signup/signup.component';
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
@@ -27,9 +28,8 @@ const appRoutes: Routes = [
   {path: 'fixtureadm', component: FixtureAdminComponent},
   {path: 'apuesta', component: ApuestasComponent},
   {path: 'leaderboard', component: LeaderboardComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'predicciones', component: PrediccionUsuarioComponent},
-  {path: '', component: LoginComponent}
+  {path: 'signup', component: SignupComponent},
+  {path: 'predicciones', component: PrediccionUsuarioComponent}
 ];
 
 @NgModule({
@@ -47,7 +47,8 @@ const appRoutes: Routes = [
     FixtureAdminComponent,
     EquipoComponent,
     PrediccionUsuarioComponent,
-    PrediccionItemComponent
+    PrediccionItemComponent,
+    SignupComponent
   ],
   providers: [
     EquipoService, // Añade aquí EquipoService
