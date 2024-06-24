@@ -6,8 +6,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  esAdmin: string = localStorage.getItem('esAdmin') || "";
   constructor() { }
-
+  
   ngOnInit(): void {
   }
 

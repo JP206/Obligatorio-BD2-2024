@@ -15,7 +15,7 @@ export class PartidoComponent implements OnInit {
   prediccionEquipo1: number = 0;
   prediccionEquipo2: number = 0;
   prediccion: PrediccionCrear | undefined;
-  usuario: string = "juan@gmail.com";
+  usuario: string = localStorage.getItem('correo') || "";
 
   habilitado: boolean = true;
   errorMessage: string = "";
@@ -46,6 +46,7 @@ export class PartidoComponent implements OnInit {
       }
       this.prediccionService.crearPrediccion(this.prediccion).subscribe(
         (data: Boolean) => {
+          console.log(this.usuario)
           console.log('se creo la prediccion: ', data);
         },
         (error) => {

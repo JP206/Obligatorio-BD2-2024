@@ -28,11 +28,11 @@ export class AlumnoService {
     return this.http.get<Alumno[]>(this.apiUrl+'/top15', { headers: headers });
   }
 
-  getPuntaje(correoUsuario: string): Observable<number> {
+  getPuntaje(): Observable<number> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
-    return this.http.get<number>(this.apiUrl+'/puntaje?correo='+correoUsuario, { headers: headers });
+    return this.http.get<number>(this.apiUrl+'/puntaje?correo='+localStorage.getItem('correo') || "", { headers: headers });
   }
 }

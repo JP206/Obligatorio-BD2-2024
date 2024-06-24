@@ -12,7 +12,7 @@ import { AlumnoService } from '../alumno.service';
 })
 export class PrediccionUsuarioComponent implements OnInit {
   predicciones: Prediccion[] = [];
-  usuario: string = "juan@gmail.com"; // TODO QUE OBTENGA EL NOMBRE DE LOCALSTORAGE O NO SE.
+  usuario: string = localStorage.getItem('correo') || ""; // TODO QUE OBTENGA EL NOMBRE DE LOCALSTORAGE O NO SE.
   errorMessage: string = "";
   equipos: Equipo[] = [];
   puntajeTotal: number = 0;
@@ -28,7 +28,7 @@ export class PrediccionUsuarioComponent implements OnInit {
         this.errorMessage = 'Hubo un error al cargar los equipos.';
       }
     );
-    this.AlumnoService.getPuntaje(this.usuario).subscribe(
+    this.AlumnoService.getPuntaje().subscribe(
       (data: number) => {
         this.puntajeTotal = data;
       },
@@ -37,7 +37,7 @@ export class PrediccionUsuarioComponent implements OnInit {
         this.errorMessage = 'Hubo un error al cargar el puntaje.';
       }
     );
-    this.prediccionService.getPredicciones(this.usuario).subscribe( 
+    this.prediccionService.getPredicciones().subscribe( 
       (data: Prediccion[]) => {
         for (const prediccion of data) {
           if (prediccion.equipo1 && prediccion.equipo2) {

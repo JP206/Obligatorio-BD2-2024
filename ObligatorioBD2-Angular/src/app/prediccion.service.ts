@@ -13,12 +13,12 @@ export class PrediccionService {
 
   constructor(private http: HttpClient) { }
 
-  getPredicciones(correoUsuario: string): Observable<Prediccion[]> {
+  getPredicciones(): Observable<Prediccion[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
-    return this.http.get<Prediccion[]>(this.apiUrl+'/'+correoUsuario, { headers: headers });
+    return this.http.get<Prediccion[]>(this.apiUrl+'/'+localStorage.getItem('correo') || "", { headers: headers });
   }
 
   crearPrediccion(prediccion: PrediccionCrear): Observable<Boolean> {
