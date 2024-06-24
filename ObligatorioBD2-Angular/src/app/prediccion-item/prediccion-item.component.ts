@@ -17,7 +17,7 @@ export class PrediccionItemComponent implements OnInit {
   prediccionCrear: PrediccionCrear | undefined;
   equipos: Equipo[] = [];
 
-  usuario: string = "juan@gmail.com"; // TODO QUE OBTENGA EL NOMBRE DE LOCALSTORAGE O NO SE.
+  usuario: string = localStorage.getItem('correo') || ""; // TODO QUE OBTENGA EL NOMBRE DE LOCALSTORAGE O NO SE.
   errorMessage: string = '';
   habilitado : boolean = true; // TODO VERIFICAR SI TODAVIA SE PUEDE CAMBIAR
   constructor(private equipoService: EquipoService, private prediccionService: PrediccionService) { }
