@@ -151,20 +151,23 @@ public class UsuarioRepository implements IUsuarioRepository {
             pstmt.setString(3, alumno.getCorreo());
             pstmt.setString(4, alumno.getContrasenia());
             int rs = pstmt.executeUpdate();
+            boolean insert1 = rs != 0;
             
             query = "INSERT INTO Alumnos (id, campeon, subcampeon) SELECT id, ?, ? FROM Usuarios ORDER BY id DESC LIMIT 1";
             pstmt = con.prepareStatement(query);
             pstmt.setString(1, alumno.getCampeon());
             pstmt.setString(2, alumno.getSubcampeon());
             int rs2 = pstmt.executeUpdate();
+            boolean insert2 = rs2 != 0;
             
             query = "INSERT INTO Cursa (nombre_carrera, id_alumno, borrado) SELECT ?, id, false FROM Alumnos ORDER BY id DESC LIMIT 1";
             pstmt = con.prepareStatement(query);
             pstmt.setString(1, alumno.getCarrera());
             int rs3 = pstmt.executeUpdate();
+            boolean insert3 = rs3 != 0;
             
             con.close();
-            return (rs + rs2 + rs3) != 0;
+            return insert1 && insert2 && insert3;
         } catch (Exception e) {
             System.out.println(e);
         }
