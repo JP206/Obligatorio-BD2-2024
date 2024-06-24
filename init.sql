@@ -21,7 +21,9 @@ CREATE TABLE Alumnos (
     id INT PRIMARY KEY ,
     campeon VARCHAR(20),
     subcampeon VARCHAR(20),
-    FOREIGN KEY (id) REFERENCES Usuarios (id)
+    FOREIGN KEY (id) REFERENCES Usuarios (id),
+    FOREIGN KEY (campeon) REFERENCES Paises (nombre),
+    FOREIGN KEY (subcampeon) REFERENCES Paises (nombre)
 );
 
 CREATE TABLE Carreras (
