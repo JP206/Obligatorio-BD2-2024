@@ -1,7 +1,11 @@
+.leaderboard-title {
+  color: white;
+}
 /* Contenedor de la tabla Leaderboard */
 .leaderboard-container {
     max-height: 400px; /* Altura máxima para el contenedor */
     overflow-y: auto; /* Agrega scroll vertical si es necesario */
+    background-color: white;
   }
   
   /* Estilos para la tabla Leaderboard */
@@ -26,5 +30,17 @@
   
   .leaderboard tbody tr:hover {
     background-color: #e0e0e0;
+  }
+
+  .background-image {
+    filter: brightness(50%);
+    position: fixed;
+    top: 45;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    background-size: 100%;
   }
   

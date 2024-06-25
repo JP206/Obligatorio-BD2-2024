@@ -1,6 +1,10 @@
 .equipo-imagen {
     max-height: 60px; /* Ajusta el tamaño máximo de las imágenes */
   }
+
+.todo {
+  background-color: white;
+}
   
   .equipo-nombre {
     margin-top: 10px;

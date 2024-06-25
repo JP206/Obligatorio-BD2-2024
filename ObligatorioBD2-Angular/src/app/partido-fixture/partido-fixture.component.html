@@ -1,4 +1,4 @@
-<div *ngIf="!admin">
+<div class="todo" *ngIf="!admin">
   <div class="row align-items-center text-center partido" *ngIf="partido">
     <div class="col-4">
       <img [src]="partido.imagenEquipo1" class="img-fluid equipo-imagen" [alt]="partido.equipo1">
@@ -17,7 +17,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="admin">
+<div class="todo" *ngIf="admin">
   <div class="row align-items-center text-center partido" *ngIf="partido">
     <div class="col-4">
       <img [src]="partido.imagenEquipo1" class="img-fluid equipo-imagen clickable" [alt]="partido.equipo1" (click)="emitEvent(1)">
