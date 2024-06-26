@@ -19,4 +19,5 @@
   
 .contenedorPartido {
     border: 1px solid #ccc; /* Añade un borde sólido de 1px con color gris claro */
+    background-color: white;
 }

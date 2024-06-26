@@ -1,0 +1,45 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Previene scrollbars */
+}
+
+.welcome-container {
+    position: relative;
+    text-align: center;
+    height: 100%; /* Asegura que el contenedor ocupe toda la altura */
+}
+
+.background-image {
+    position: fixed; /* Fija la imagen de fondo */
+    top: 85px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%); /* Makes the image dimmed */
+    z-index: -1; /* Coloca la imagen detrás de todo */
+}
+
+.welcome-text, .welcome-subtext {
+    position: relative; /* Cambia a posición relativa para mantener en flujo del documento */
+    font-size: 3em;
+    color: white; /* Color del texto */
+    z-index: 1; /* Coloca el texto sobre la imagen */
+    margin-top: 100px; /* Ajusta el margen superior para evitar la superposición con la barra de navegación */
+}
+
+.welcome-text {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.welcome-subtext {
+    color: rgb(196, 196, 196);
+    animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

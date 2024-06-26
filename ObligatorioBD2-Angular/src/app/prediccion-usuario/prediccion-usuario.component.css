@@ -5,3 +5,18 @@
 .puntaje-total {
     font-size: 40px;
 }
+
+.background-image {
+    filter: brightness(50%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+.todo {
+    background-color:rgba(255,255,255, 0.5);
+}
