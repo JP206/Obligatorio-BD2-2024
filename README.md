@@ -2,16 +2,26 @@
 ### Juan Cosentino, Santiago Ferraro, Bianca Luzzatto
 
 # Para correr la aplicación
-### API
+### API y backend
 - Es necesario tener instalado JDK 8 o superior
 - Descargar Maven de la siguiente URL: https://maven.apache.org/download.cgi
 - Seguir los pasos de instalación de Maven: https://maven.apache.org/install.html
-- Para crear una variable de entorno como dice la instalación, se puede correr la siguiente línea en la consola: set PATH="c:\ruta donde se descomprimio\apache-maven-3.x.y\bin";%PATH%
+- Para crear una variable de entorno como dice la instalación, se puede correr la siguiente línea en la consola: set PATH="c:\ruta donde se descomprimió\apache-maven-3.x.y\bin";%PATH%
 - Para más información del paso anterior, verificar la segunda respuesta en: https://stackoverflow.com/questions/45119595/how-to-add-maven-to-the-path-variable
 - En la consola, dirigirse al directorio "api". Una vez dentro, para iniciar la API se debe ejecutar: mvn spring-boot:run
 - Debería verse así el final de la consola:
 ![consola api](comando-api.png)
 - Marcado en rojo indica el puerto en el que corre la API
+### Frontend
+- Es necesario tener instalado Node.js, el cual puede ser descargado de la siguiente URL: https://nodejs.org/en
+- Es necesario tener instalada la CLI de Angular. Para hacerlo, se debe abrir una terminal y ejecutar: npm install -g @angular/cli
+- Es necesario tener instalado node modules. Para esto, desde la consola navegar hasta el directorio raíz del proyecto de Angular y ejecutar: npm install
+- Para iniciar el frontend, en una consola ubicada en la carpeta ObligatorioBD2-Angular, ejecutar: ng serve --open
+- Con la bandera --open la aplicación se iniciará un navegador (o se abrirá una nueva pestaña en caso de que esté abierto el navegador) y se dirigirá a la URL del proyecto automáticamente
+- La aplicación utiliza Bootstrap para los estilos. Debería instalarse por defecto con npm install, en caso de que no sea así (los componentes de la página fallan) se debe instalar abriendo una terminal en el directorio raíz y ejecutando: npm install bootstrap
+### Docker con la base de datos
+- Es necesario tener Docker instalado. Se puede descargar de la siguiente URL: https://www.docker.com/products/docker-desktop/
+- En el directorio raíz de este repositorio hay un archivo docker-compose.yml. Desde la terminal y en este directorio ejecutar: docker-compose up 
 
 
 # PencaUCU Copa América 2024
